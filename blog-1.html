@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Truss Media Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffd700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav a:hover {
+            color: #ffd700;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffd700;
+            transition: width 0.3s ease;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(rgba(255, 215, 0, 0.05), rgba(255, 215, 0, 0.02));
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-tagline {
+            font-size: 1.1rem;
+            color: #ffd700;
+            margin-top: 1rem;
+            font-weight: 500;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        /* Blog Grid */
+        .blog-section {
+            padding: 4rem 0;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .blog-card {
+            background: rgba(30, 30, 60, 0.6);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .blog-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .blog-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ffd700, #ffed4e);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .blog-header {
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.05));
+        }
+
+        .blog-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffd700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .blog-author {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-excerpt {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            gap: 0.5rem;
+        }
+
+        .read-more:hover {
+            color: #ffed4e;
+            transform: translateX(5px);
+        }
+
+        .read-more::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .read-more:hover::after {
+            transform: translateX(3px);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 3rem 0;
+            background: rgba(15, 15, 35, 0.8);
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-text {
+            color: #94a3b8;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ffd700;
+        }
+
+        /* Article View Styles */
+        .article-view {
+            display: none;
+            padding: 2rem 0;
+        }
+
+        .article-view.active {
+            display: block;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(30, 30, 60, 0.6);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .article-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .article-author {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-text {
+            color: #e2e8f0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .article-text h3 {
+            color: #ffd700;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 600;
+        }
+
+        .article-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            gap: 0.5rem;
+        }
+
+        .back-to-blog:hover {
+            color: #ffed4e;
+            transform: translateX(-5px);
+        }
+
+        .back-to-blog::before {
+            content: '←';
+            transition: transform 0.3s ease;
+        }
+
+        .back-to-blog:hover::before {
+            transform: translateX(-3px);
+        }
+
+        .blog-section.hidden {
+            display: none;
+        }
+
+        .hero.hidden {
+            display: none;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .blog-title {
+                font-size: 1.3rem;
+            }
+
+            .blog-header {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Truss Media Group</a>
+                <nav class="nav">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Our Blog</h1>
+            <p>Insights, stories, and perspectives on African media, content creation, and the future of storytelling.</p>
+            <div class="hero-tagline">Now and Beyond</div>
+        </div>
+    </section>
+
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-grid">
+                <!-- Article 1 -->
+                <article class="blog-card">
+                    <div class="blog-header">
+                        <h2 class="blog-title">How to Build a Culturally Relevant IP for Global Audiences</h2>
+                        <div class="blog-author">By Adewale S. Adekunle</div>
+                        <p class="blog-excerpt">
+                            In today's content-driven world, the stories that travel farthest are the ones deeply rooted in local culture. At Truss Media Group, we believe that building globally successful intellectual property starts by embracing authenticity. Discover how to create stories that are proudly local but globally appealing.
+                        </p>
+                        <a href="#" class="read-more" onclick="showArticle('article1')">Read Full Article</a>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="blog-card">
+                    <div class="blog-header">
+                        <h2 class="blog-title">Why Invest in African Media? Opportunities and Trends</h2>
+                        <div class="blog-author">By Adewale S. Adekunle</div>
+                        <p class="blog-excerpt">
+                            Africa's creative industries are growing fast and catching the world's attention. From streaming platforms developing African series to film festivals celebrating stories from Lagos, Nairobi, and Accra, the media landscape is changing. The question isn't whether African media is a good investment—it's how long you can afford to wait.
+                        </p>
+                        <a href="#" class="read-more" onclick="showArticle('article2')">Read Full Article</a>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="blog-card">
+                    <div class="blog-header">
+                        <h2 class="blog-title">Why Gen Z is Reshaping African Content Consumption</h2>
+                        <div class="blog-author">By Adewale S. Adekunle</div>
+                        <p class="blog-excerpt">
+                            The way African content is consumed has changed dramatically, and Gen Z is at the center of that transformation. This generation is not just consuming content—they're actively shaping what gets made, how it's distributed, and what stories gain attention. They're driving a bold new era of mobile-first, authentic storytelling.
+                        </p>
+                        <a href="#" class="read-more" onclick="showArticle('article3')">Read Full Article</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Views -->
+    <section id="article1" class="article-view">
+        <div class="container">
+            <div class="article-content">
+                <a href="#" class="back-to-blog" onclick="showBlogList()">Back to Blog</a>
+                <div class="article-header">
+                    <h1 class="article-title">How to Build a Culturally Relevant IP for Global Audiences</h1>
+                    <div class="article-author">By Adewale S. Adekunle</div>
+                </div>
+                <div class="article-text">
+                    <p>In the creative world, Intellectual Property (IP) refers to original creative works of an individual such as films, TV series, books, characters, formats or even branded content that can be legally protected and monetized across platforms. A strong IP is a valuable asset that can be adapted, franchised and licensed globally.</p>
+
+                    <p>In today's content-driven world, the stories that travel farthest are the ones deeply rooted in local culture. At Truss Media Group, we believe that building globally successful intellectual property (IP) starts by embracing authenticity. As a Nigerian media agency that is culturally grounded and globally ambitious, our mission is to help storytellers develop IPs that not only resonate in Nigeria but captivate audiences across continents.</p>
+
+                    <p>So how do you create stories that are proudly local but globally appealing?</p>
+
+                    <p>Let's break it down.</p>
+
+                    <h3>Start With Home</h3>
+                    <p>The best global stories often start from the smallest, most personal places. Stories that stay true to their local culture, language and people tend to travel the farthest because they offer something unique. Audiences everywhere are hungry for something they haven't seen before, something unique and honest.</p>
+
+                    <p>Trying to "internationalize" a story by stripping it of its local identity is a common mistake made by many Creatives instead of embracing the richness of your culture, the food, the music, the street slang, the fashion, which is what makes your IP stand out. The more specific you are the more universal your story becomes.</p>
+
+                    <h3>Find the Universal Core</h3>
+                    <p>Every great story has a heartbeat. Love, family, betrayal, ambition, freedom, these themes are universal. They speak to people across continents and cultures.</p>
+
+                    <p>The key is to build stories that reflect African realities while tapping into emotions that anyone, anywhere can understand. This doesn't mean watering down your story but it is simply about finding its core truth that connects with the human experience.</p>
+
+                    <h3>Think Beyond One Platform</h3>
+                    <p>Today's audiences aren't limited to cinemas and TV screens. They are watching content on their phones, following stories across social media and engaging with characters in interactive ways. When developing a culturally relevant IP, it is important to think across platforms.</p>
+
+                    <p>Can your story live as a web series, a podcast, a game, or even as a fan-driven social movement? IPs that are flexible, what some call "platform-fluid" are more likely to grow and last in today's content ecosystem.</p>
+
+                    <h3>Invest in Quality, But Stay Authentic</h3>
+                    <p>As global interest in African stories rises, production quality is more important than ever. To compete internationally, visuals, sound and storytelling need to meet global standards.</p>
+
+                    <p>But quality doesn't mean you should lose the rawness, authenticity and honesty that make your story African. The balance is key: produce with care but don't polish your story to the point where it feels artificial. Global audiences are drawn to cultural depth, they want to experience your world as it truly is.</p>
+
+                    <h3>Build With the Right People</h3>
+                    <p>Taking an IP global is not a solo journey. It is about building the right team, writers, producers, distributors and even Media agency like Truss Media Group, who understand your story's cultural value and won't ask you to compromise it for quick profit.</p>
+
+                    <p>We are the collaborator who will respect your vision, see the global potential in your local story and who can help you reach the audiences your IP deserves.</p>
+
+                    <h3>Final Thoughts</h3>
+                    <p>The future of storytelling belongs to creators who are boldly themselves. Building a culturally relevant IP for global audiences starts with staying true to your roots while crafting stories that touch hearts everywhere.</p>
+
+                    <p>The opportunity to shape narratives, create unforgettable characters and build lasting global IP is here. The storytellers who embrace this moment, who build for now and beyond will lead the way.</p>
+
+                    <p>At Truss Media Group, we are dedicated to developing globally competitive intellectual properties rooted in local relevance and we are just a click away.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="article2" class="article-view">
+        <div class="container">
+            <div class="article-content">
+                <a href="#" class="back-to-blog" onclick="showBlogList()">Back to Blog</a>
+                <div class="article-header">
+                    <h1 class="article-title">Why Invest in African Media? Opportunities and Trends</h1>
+                    <div class="article-author">By Adewale S. Adekunle</div>
+                </div>
+                <div class="article-text">
+                    <p>Africa's creative industries are growing fast and they are catching the world's attention. From streaming platforms developing and buying up African series to film festivals celebrating stories from Lagos, Nairobi, Accra and beyond, the media landscape on the continent is changing.</p>
+
+                    <p>The question isn't whether African media is a good investment. The real question is—how long can you afford to wait?</p>
+
+                    <p>Let's explore why investing in African media is one of the smartest moves right now.</p>
+
+                    <h3>A Young, Hungry Audience</h3>
+                    <p>Africa is home to the youngest population on the planet. Millions of young people, most of them mobile-first, are shaping what content trends, what goes viral and what stories matter.</p>
+
+                    <p>This is a generation that consumes content differently. They don't wait for TV schedules, they stream on their phones, they binge on social media and they love stories that speak directly to their lives. The demand is high but the local supply is still growing, which creates a wide-open space for bold investors and content creators to step in.</p>
+
+                    <h3>Untapped Stories That the World Wants</h3>
+                    <p>Africa is rich with stories that haven't been told yet. Local folklore, modern dramas, true crime, romance, youth culture, there is so much still unexplored on screen. The global audience is hungry for new, authentic perspectives, and African stories are increasingly finding success on international platforms.</p>
+
+                    <p>What is exciting is that you don't have to water down these stories to make them global. In fact, the more culturally specific they are, the more likely they are to travel. Audiences around the world are drawn to honesty, originality, and cultural richness.</p>
+
+                    <p>At Truss Media Group, we specialize in developing globally competitive stories rooted in local relevance. As a film production company in Nigeria with a story-first, platform-fluid approach, we help bring these stories to life with high production value and creative authenticity.</p>
+
+                    <h3>Digital is the Game-Changer</h3>
+                    <p>Africa's media boom is being powered by mobile phones, streaming apps, podcasts and digital platforms. The continent's mobile-first audience is creating new ways for content to reach millions without needing traditional TV stations or cinemas.</p>
+
+                    <p>For investors, this is key. You can fund projects that speak directly to audiences through platforms they already use—affordable, scalable, and without the heavy infrastructure costs of old-school media.</p>
+
+                    <h3>Global Collaborations Are Opening Doors</h3>
+                    <p>International streamers, distributors and studios are now actively looking for African content. Deals that used to be hard to reach are now becoming the norm, as the world realizes the power and beauty of African storytelling.</p>
+
+                    <p>This means the pathway to global visibility is more accessible than ever and if you have the right stories, partners and production teams.</p>
+
+                    <h3>The Investment Edge</h3>
+                    <p>Here's why African media is a smart investment:</p>
+                    <p><strong>Rapid Growth:</strong> Africa's creative economy is expanding faster than traditional sectors.</p>
+                    <p><strong>Low Competition:</strong> The market is not yet saturated, offering first-mover advantages.</p>
+                    <p><strong>High Engagement:</strong> Young African audiences are highly responsive to local, authentic content.</p>
+                    <p><strong>Global Demand:</strong> There is increasing appetite for African stories in international markets.</p>
+
+                    <h3>Final Thoughts</h3>
+                    <p>Investing in African media isn't just about the money. It's about backing a creative movement that is rewriting how Africa is seen and heard. It's about believing in the power of authentic stories, diverse voices and homegrown talent. At Truss Media Group, we are proud to be part of this movement.</p>
+
+                    <p>For investors, creators and brands ready to make a bold move, the opportunity is here. We are Truss, we are Now and Beyond.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="article3" class="article-view">
+        <div class="container">
+            <div class="article-content">
+                <a href="#" class="back-to-blog" onclick="showBlogList()">Back to Blog</a>
+                <div class="article-header">
+                    <h1 class="article-title">Why Gen Z is Reshaping African Content Consumption</h1>
+                    <div class="article-author">By Adewale S. Adekunle</div>
+                </div>
+                <div class="article-text">
+                    <p>The way African content is consumed has changed dramatically and Gen Zs, individuals born between 1997 and 2010, are at the center of that transformation. Across Nigeria and the continent, this generation is not just consuming content they are actively shaping what is made, how it is made, how it is distributed and what stories gain attention. They are driving a bold new era where storytelling is mobile, authentic, and deeply interactive.</p>
+
+                    <h3>Mobile-First, Always</h3>
+                    <p>For Gen Z, the phone isn't just a device, it is their primary screen and source of entertainment. Traditional TV is no longer the heartbeat of entertainment. This generation spends most of their time scrolling, streaming and sharing content on the go. They are not waiting for prime-time, they create their own prime-time moments.</p>
+
+                    <p>This shift is pushing content creators and production companies to design stories that are quick, platform-fluid and visually engaging right from the first few seconds and this is what we can craft at Truss Media Group because in the fast-moving world of short-form videos and social storytelling, capturing and holding Gen Z's attention is both a challenge and an opportunity.</p>
+
+                    <h3>Authenticity Over Perfection</h3>
+                    <p>More than any generation before them, Gen Z craves authenticity. They can spot a forced, staged, inauthentic and over-produced story from a mile away. They are not just your regular consumer as they don't just want to watch, they also want to feel connected. Stories that highlight real people, real struggles, real contemporary issues and honest cultural experiences win their loyalty.</p>
+
+                    <p>For storytellers, this means leaning into the raw, the local, the human. Gen Z doesn't need perfection, they want something that feels real, even if it's messy. Brands and creators who embrace this will find a powerful, engaged audience. For Truss Media Group, this is not a challenge, it is our sweet spot.</p>
+
+                    <p>We specialize in crafting bold, authentic stories that resonate across Nigeria and the African diaspora. Through our screenwriting services, we develop narratives that speak directly to the heart of Gen Z's experiences which includes social justice, identity, love, mental health, and more.</p>
+
+                    <h3>Representation Matters and it matters Deeply</h3>
+                    <p>Diversity is non-negotiable for Gen Z. They want to see stories that reflect their realities, their languages, their communities, their style, their slangs, their subcultures. African audiences, in particular, are demanding content that shows Africa in its full complex beauty not just the simplified versions they have often been served.</p>
+
+                    <p>Creators who tell unapologetically African stories are finally finding their voices heard not just on the continent but on global stages. Stories rooted in local culture when told well have universal appeal. They travel, they resonate and they inspire.</p>
+
+                    <h3>It Is About Community, Not Just Content</h3>
+                    <p>For Gen Z, content doesn't exist in isolation, it lives within communities. They build conversations around the films, series, and moments that matter to them. They share, remix, debate and celebrate their favorite stories together.</p>
+
+                    <p>This is why storytelling today must spark participation. Whether it's through social media, fan-driven content, or interactive campaigns, the goal is to build a community not just an audience. The most successful content today creates spaces for Gen Z to engage, not just consume.</p>
+
+                    <h3>Why It Matters for Brands and Creators</h3>
+                    <p>The content economy is moving to the rhythm of Gen Z. Understanding their preferences, their platforms and their values is essential for anyone who wants to make an impact in today's African media landscape.</p>
+
+                    <p>This generation is steering the future of storytelling Now and Beyond. They are shaping what is popular, what gets funded and what gets shared. The brands, creators and production teams who listen and evolve with them will find themselves not just relevant but leading.</p>
+
+                    <h3>Final Thoughts</h3>
+                    <p>Gen Z isn't waiting for permission to shape the future of African content which they are already doing. They want stories that reflect their world. They aren't here to watch from the sidelines. They are actively creating, curating and reshaping what content means on the continent.</p>
+
+                    <p>At Truss Media Group, we are here to bridge stories, culture, and commerce in a way that speaks to this generation's spirit.</p>
+
+                    <p>We are bold. We are visionary. We are Truss—Now and Beyond.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    © 2024 Truss Media Group. All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add subtle parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Intersection Observer for blog cards animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all blog cards
+        document.querySelectorAll('.blog-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

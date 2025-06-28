@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - Truss Media Group</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        background: linear-gradient(
+          135deg,
+          #0a0a0a 0%,
+          #1a1a1a 50%,
+          #000000 100%
+        );
+        color: #ffffff;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Header Section */
+      .header {
+        padding: 6rem 0 4rem;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          #000000 0%,
+          #1a1a1a 30%,
+          #2a2a2a 70%,
+          #1a1a1a 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.05"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        animation: float 20s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .blog-title {
+        font-size: 3.5rem;
+        font-weight: 900;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, #ffd700, #ffed4a, #f39c12, #ff8c00);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientShift 4s ease-in-out infinite;
+      }
+
+      @keyframes gradientShift {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .blog-subtitle {
+        font-size: 1.3rem;
+        opacity: 0.8;
+        margin-bottom: 2rem;
+      }
+
+      .divider {
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(135deg, #ffd700 0%, #f39c12 100%);
+        margin: 0 auto;
+        border-radius: 2px;
+      }
+
+      /* Container */
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* Blog Grid */
+      .blog-section {
+        padding: 4rem 0 6rem;
+      }
+
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+        margin-top: 3rem;
+      }
+
+      /* Blog Cards */
+      .blog-card {
+        background: rgba(26, 26, 26, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 215, 0, 0.2);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .blog-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 215, 0, 0.1),
+          transparent
+        );
+        transition: left 0.6s;
+        z-index: 1;
+      }
+
+      .blog-card:hover::before {
+        left: 100%;
+      }
+
+      .blog-card:hover {
+        transform: translateY(-10px);
+        border-color: rgba(255, 215, 0, 0.4);
+        box-shadow: 0 25px 50px rgba(255, 215, 0, 0.15);
+      }
+
+      .blog-image {
+        width: 100%;
+        height: 250px;
+        background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .blog-image::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #ffd700 0%, #f39c12 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        content: "📸";
+      }
+
+      .blog-content {
+        padding: 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .blog-category {
+        display: inline-block;
+        background: linear-gradient(135deg, #ffd700 0%, #f39c12 100%);
+        color: #000;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 1rem;
+      }
+
+      .blog-title-card {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.4;
+        color: #ffffff;
+      }
+
+      .blog-excerpt {
+        font-size: 0.95rem;
+        opacity: 0.8;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .blog-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 215, 0, 0.1);
+      }
+
+      .blog-author {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .author-avatar {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #ffd700 0%, #f39c12 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #000;
+        font-size: 1.1rem;
+      }
+
+      .author-info {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .author-name {
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .blog-date {
+        font-size: 0.8rem;
+        opacity: 0.6;
+      }
+
+      .read-time {
+        font-size: 0.8rem;
+        opacity: 0.6;
+        background: rgba(255, 215, 0, 0.1);
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+      }
+
+      .read-more-btn {
+        width: 100%;
+        background: linear-gradient(135deg, #ffd700 0%, #f39c12 100%);
+        color: #000;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .read-more-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+        background: linear-gradient(135deg, #ffed4a 0%, #ffd700 100%);
+      }
+
+      .read-more-btn:active {
+        transform: translateY(0);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .blog-title {
+          font-size: 2.5rem;
+        }
+
+        .blog-subtitle {
+          font-size: 1.1rem;
+        }
+
+        .container {
+          padding: 0 1rem;
+        }
+
+        .blog-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .blog-card {
+          margin: 0 0.5rem;
+        }
+
+        .header {
+          padding: 4rem 0 3rem;
+        }
+
+        .blog-section {
+          padding: 3rem 0 4rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .blog-content {
+          padding: 1.5rem;
+        }
+
+        .blog-title-card {
+          font-size: 1.2rem;
+        }
+
+        .blog-meta {
+          flex-direction: column;
+          gap: 1rem;
+          align-items: flex-start;
+        }
+      }
+
+      /* Animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeIn 0.8s ease-out forwards;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .stagger-1 {
+        animation-delay: 0.1s;
+      }
+      .stagger-2 {
+        animation-delay: 0.2s;
+      }
+      .stagger-3 {
+        animation-delay: 0.3s;
+      }
+      .stagger-4 {
+        animation-delay: 0.4s;
+      }
+      .stagger-5 {
+        animation-delay: 0.5s;
+      }
+      .stagger-6 {
+        animation-delay: 0.6s;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <section class="header">
+      <div class="header-content">
+        <h1 class="blog-title">TRUSS BLOG</h1>
+        <p class="blog-subtitle">
+          Insights, Stories & Industry Perspectives from the World of Media &
+          Entertainment
+        </p>
+        <div class="divider"></div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+      <div class="container">
+        <div class="blog-grid">
+          <!-- Blog Card 1 -->
+          <article class="blog-card fade-in stagger-1">
+            <div class="blog-image"></div>
+            <div class="blog-content">
+              <span class="blog-category">Industry Insights</span>
+              <h3 class="blog-title-card">
+                The Future of African Cinema: Bridging Local Stories with Global
+                Audiences
+              </h3>
+              <p class="blog-excerpt">
+                As African cinema continues to gain international recognition,
+                we explore how local storytellers can craft authentic narratives
+                that resonate worldwide while preserving cultural authenticity.
+              </p>
+              <div class="blog-meta">
+                <div class="blog-author">
+                  <div class="author-avatar">DO</div>
+                  <div class="author-info">
+                    <span class="author-name">Daniel Olas</span>
+                    <span class="blog-date">March 15, 2024</span>
+                  </div>
+                </div>
+                <span class="read-time">5 min read</span>
+              </div>
+              <button class="read-more-btn">Read More</button>
+            </div>
+          </article>
+
+          <!-- Blog Card 2 -->
+          <article class="blog-card fade-in stagger-2">
+            <div class="blog-image"></div>
+            <div class="blog-content">
+              <span class="blog-category">Production</span>
+              <h3 class="blog-title-card">
+                Streaming vs. Traditional Cinema: Navigating the New
+                Distribution Landscape
+              </h3>
+              <p class="blog-excerpt">
+                The entertainment industry has fundamentally shifted. We discuss
+                strategies for content creators to maximize reach across both
+                streaming platforms and traditional theatrical releases.
+              </p>
+              <div class="blog-meta">
+                <div class="blog-author">
+                  <div class="author-avatar">AK</div>
+                  <div class="author-info">
+                    <span class="author-name">Adaora Kalu</span>
+                    <span class="blog-date">March 12, 2024</span>
+                  </div>
+                </div>
+                <span class="read-time">7 min read</span>
+              </div>
+              <button class="read-more-btn">Read More</button>
+            </div>
+          </article>
+
+          <!-- Blog Card 3 -->
+          <article class="blog-card fade-in stagger-3">
+            <div class="blog-image"></div>
+            <div class="blog-content">
+              <span class="blog-category">Technology</span>
+              <h3 class="blog-title-card">
+                AI and Machine Learning in Content Creation: Tools or Threats?
+              </h3>
+              <p class="blog-excerpt">
+                Artificial intelligence is revolutionizing how we create, edit,
+                and distribute content. We examine the opportunities and
+                challenges facing creative professionals in this new era.
+              </p>
+              <div class="blog-meta">
+                <div class="blog-author">
+                  <div class="author-avatar">TM</div>
+                  <div class="author-info">
+                    <span class="author-name">Tolu Martins</span>
+                    <span class="blog-date">March 8, 2024</span>
+                  </div>
+                </div>
+                <span class="read-time">6 min read</span>
+              </div>
+              <button class="read-more-btn">Read More</button>
+            </div>
+          </article>
+
+          <!-- Blog Card 4 -->
+          <article class="blog-card fade-in stagger-4">
+            <div class="blog-image"></div>
+            <div class="blog-content">
+              <span class="blog-category">Business</span>
+              <h3 class="blog-title-card">
+                Building Sustainable Revenue Models for Independent Filmmakers
+              </h3>
+              <p class="blog-excerpt">
+                Independent filmmakers face unique financial challenges. We
+                break down innovative funding strategies and revenue models that
+                can help creative projects thrive in today's market.
+              </p>
+              <div class="blog-meta">
+                <div class="blog-author">
+                  <div class="author-avatar">EN</div>
+                  <div class="author-info">
+                    <span class="author-name">Emeka Nwosu</span>
+                    <span class="blog-date">March 5, 2024</span>
+                  </div>
+                </div>
+                <span class="read-time">8 min read</span>
+              </div>
+              <button class="read-more-btn">Read More</button>
+            </div>
+          </article>
+
+          <!-- Blog Card 5 -->
+          <article class="blog-card fade-in stagger-5">
+            <div class="blog-image"></div>
+            <div class="blog-content">
+              <span class="blog-category">Creative Process</span>
+              <h3 class="blog-title-card">
+                The Art of Visual Storytelling: From Script to Screen
+              </h3>
+              <p class="blog-excerpt">
+                Great stories deserve great visuals. We explore the journey from
+                initial concept to final frame, highlighting the collaborative
+                process that brings scripts to life through cinematography.
+              </p>
+              <div class="blog-meta">
+                <div class="blog-author">
+                  <div class="author-avatar">FO</div>
+                  <div class="author-info">
+                    <span class="author-name">Folake Ogun</span>
+                    <span class="blog-date">March 1, 2024</span>
+                  </div>
+                </div>
+                <span class="read-time">4 min read</span>
+              </div>
+              <button class="read-more-btn">Read More</button>
+            </div>
+          </article>
+
+          <!-- Blog Card 6 -->
+          <article class="blog-card fade-in stagger-6">
+            <div class="blog-image"></div>
+            <div class="blog-content">
+              <span class="blog-category">Marketing</span>
+              <h3 class="blog-title-card">
+                Social Media Marketing for Content Creators: Beyond the Basics
+              </h3>
+              <p class="blog-excerpt">
+                In today's digital landscape, creating great content is only
+                half the battle. Learn advanced social media strategies that can
+                help your projects reach and engage the right audiences.
+              </p>
+              <div class="blog-meta">
+                <div class="blog-author">
+                  <div class="author-avatar">KI</div>
+                  <div class="author-info">
+                    <span class="author-name">Kemi Ibrahim</span>
+                    <span class="blog-date">February 28, 2024</span>
+                  </div>
+                </div>
+                <span class="read-time">6 min read</span>
+              </div>
+              <button class="read-more-btn">Read More</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Intersection Observer for animations
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -100px 0px",
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.animationPlayState = "running";
+            }
+          });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll(".fade-in").forEach((el) => {
+          el.style.animationPlayState = "paused";
+          observer.observe(el);
+        });
+
+        // Add click functionality to Read More buttons
+        document.querySelectorAll(".read-more-btn").forEach((btn) => {
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            const card = this.closest(".blog-card");
+            const title = card.querySelector(".blog-title-card").textContent;
+
+            // Add a subtle animation
+            this.style.transform = "scale(0.95)";
+            setTimeout(() => {
+              this.style.transform = "scale(1)";
+            }, 150);
+
+            // You can replace this with actual navigation logic
+            console.log("Opening blog post:", title);
+            // window.location.href = '/blog/' + slug;
+          });
+        });
+
+        // Add hover effect to blog cards
+        document.querySelectorAll(".blog-card").forEach((card) => {
+          card.addEventListener("mouseenter", function () {
+            this.style.transform = "translateY(-10px) scale(1.02)";
+          });
+
+          card.addEventListener("mouseleave", function () {
+            this.style.transform = "translateY(0) scale(1)";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

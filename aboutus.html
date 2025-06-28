@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Truss Media Group</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        background: linear-gradient(
+          135deg,
+          #0a0a0a 0%,
+          #1a1a1a 50%,
+          #000000 100%
+        );
+        color: #ffffff;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background: linear-gradient(
+          135deg,
+          #000000 0%,
+          #1a1a1a 30%,
+          #2a2a2a 70%,
+          #1a1a1a 100%
+        );
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        animation: float 20s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(1deg);
+        }
+      }
+
+      .hero-content {
+        text-align: center;
+        z-index: 2;
+        position: relative;
+        max-width: 800px;
+        padding: 0 2rem;
+      }
+
+      .logo {
+        font-size: 3.5rem;
+        font-weight: 900;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, #ffd700, #ffed4a, #f39c12, #ff8c00);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientShift 4s ease-in-out infinite;
+      }
+
+      @keyframes gradientShift {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .tagline {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        animation: fadeInUp 1s ease-out 0.5s both;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 0.9;
+          transform: translateY(0);
+        }
+      }
+
+      .scroll-indicator {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        40% {
+          transform: translateX(-50%) translateY(-10px);
+        }
+        60% {
+          transform: translateX(-50%) translateY(-5px);
+        }
+      }
+
+      /* Container */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* Section Styles */
+      .section {
+        padding: 5rem 0;
+        position: relative;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 3rem;
+        text-align: center;
+        position: relative;
+        background: linear-gradient(135deg, #ffd700 0%, #f39c12 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(135deg, #ffd700 0%, #f39c12 100%);
+        border-radius: 2px;
+      }
+
+      /* Cards */
+      .card {
+        background: rgba(26, 26, 26, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 215, 0, 0.2);
+        border-radius: 20px;
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 215, 0, 0.1),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .card:hover::before {
+        left: 100%;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+        border-color: rgba(255, 215, 0, 0.4);
+        box-shadow: 0 20px 40px rgba(255, 215, 0, 0.1);
+      }
+
+      /* Grid Layouts */
+      .grid {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      /* Values Section */
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .value-item {
+        text-align: center;
+        padding: 2rem;
+        background: rgba(26, 26, 26, 0.6);
+        border: 1px solid rgba(255, 215, 0, 0.1);
+        border-radius: 15px;
+        transition: transform 0.3s ease;
+      }
+
+      .value-item:hover {
+        transform: scale(1.05);
+        border-color: rgba(255, 215, 0, 0.3);
+      }
+
+      .value-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 1rem;
+        background: linear-gradient(135deg, #ffd700 0%, #f39c12 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+      }
+
+      /* Services Section */
+      .service-card {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 215, 0, 0.1) 0%,
+          rgba(243, 156, 18, 0.1) 100%
+        );
+        border: 1px solid rgba(255, 215, 0, 0.2);
+        border-radius: 15px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2);
+        border-color: rgba(255, 215, 0, 0.4);
+      }
+
+      .service-number {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #ffd700 0%, #f39c12 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: #000;
+      }
+
+      /* Competitive Edge */
+      .edge-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: rgba(26, 26, 26, 0.6);
+        border-radius: 10px;
+        border-left: 4px solid #ffd700;
+        transition: all 0.3s ease;
+      }
+
+      .edge-item:hover {
+        background: rgba(26, 26, 26, 0.8);
+        transform: translateX(5px);
+      }
+
+      .edge-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #ffd700 0%, #f39c12 100%);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1.5rem;
+        flex-shrink: 0;
+      }
+
+      /* Contact Section */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .contact-item {
+        text-align: center;
+        padding: 2rem;
+        background: rgba(26, 26, 26, 0.8);
+        border: 1px solid rgba(255, 215, 0, 0.2);
+        border-radius: 15px;
+        transition: transform 0.3s ease;
+      }
+
+      .contact-item:hover {
+        transform: translateY(-5px);
+        border-color: rgba(255, 215, 0, 0.4);
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 1rem;
+        background: linear-gradient(135deg, #ffd700 0%, #f39c12 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Social Links */
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .social-link {
+        width: 50px;
+        height: 50px;
+        background: rgba(26, 26, 26, 0.8);
+        border: 1px solid rgba(255, 215, 0, 0.3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .social-link:hover {
+        background: linear-gradient(135deg, #ffd700 0%, #f39c12 100%);
+        transform: scale(1.1);
+        color: #000;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .logo {
+          font-size: 2.5rem;
+        }
+
+        .tagline {
+          font-size: 1.2rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .card {
+          padding: 1.5rem;
+        }
+
+        .container {
+          padding: 0 1rem;
+        }
+      }
+
+      /* Animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeIn 0.8s ease-out forwards;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .stagger-1 {
+        animation-delay: 0.1s;
+      }
+      .stagger-2 {
+        animation-delay: 0.2s;
+      }
+      .stagger-3 {
+        animation-delay: 0.3s;
+      }
+      .stagger-4 {
+        animation-delay: 0.4s;
+      }
+      .stagger-5 {
+        animation-delay: 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="logo">TRUSS MEDIA GROUP</h1>
+        <p class="tagline">
+          From Idea to Screen — Crafting Stories That Transcend Borders
+        </p>
+      </div>
+      <div class="scroll-indicator">
+        <svg width="24" height="24" fill="white" opacity="0.7">
+          <path d="M12 2L12 20M12 20L5 13M12 20L19 13" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title fade-in">Who We Are</h2>
+        <div class="card fade-in stagger-1">
+          <p style="font-size: 1.2rem; text-align: center; margin-bottom: 2rem">
+            Truss Media Group is a dynamic, full-service media and entertainment
+            company based in Lagos, Nigeria. Founded by visionary storyteller
+            <strong>Daniel Olas</strong>, we specialize in creating world-class
+            content that bridges the gap between exceptional stories and
+            visionary producers.
+          </p>
+          <p style="text-align: center; opacity: 0.8">
+            From idea to screen — and everything in between — we provide the
+            structure and expertise to make every project seamless, elevated,
+            and impactful.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-2">
+          <div class="card fade-in stagger-1">
+            <h3
+              style="font-size: 1.8rem; margin-bottom: 1.5rem; color: #ffd700"
+            >
+              Mission
+            </h3>
+            <p>
+              To craft and deliver powerful, authentic stories that reflect
+              diverse human experiences, fuel imagination, and transcend
+              borders.
+            </p>
+          </div>
+          <div class="card fade-in stagger-2">
+            <h3
+              style="font-size: 1.8rem; margin-bottom: 1.5rem; color: #f39c12"
+            >
+              Vision
+            </h3>
+            <p>
+              To be a globally recognized media powerhouse that shapes the
+              future of entertainment across every platform — from traditional
+              cinema to streaming and beyond.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title fade-in">Core Values</h2>
+        <div class="values-grid">
+          <div class="value-item fade-in stagger-1">
+            <div class="value-icon">💡</div>
+            <h4 style="margin-bottom: 1rem">Creativity</h4>
+            <p>Every project begins with bold, original thinking.</p>
+          </div>
+          <div class="value-item fade-in stagger-2">
+            <div class="value-icon">🤝</div>
+            <h4 style="margin-bottom: 1rem">Integrity</h4>
+            <p>Honesty, commitment, and respect in all partnerships.</p>
+          </div>
+          <div class="value-item fade-in stagger-3">
+            <div class="value-icon">👥</div>
+            <h4 style="margin-bottom: 1rem">Collaboration</h4>
+            <p>Uniting talent and stakeholders toward a shared vision.</p>
+          </div>
+          <div class="value-item fade-in stagger-4">
+            <div class="value-icon">⭐</div>
+            <h4 style="margin-bottom: 1rem">Excellence</h4>
+            <p>Consistently delivering world-class, captivating productions.</p>
+          </div>
+          <div class="value-item fade-in stagger-5">
+            <div class="value-icon">🚀</div>
+            <h4 style="margin-bottom: 1rem">Innovation</h4>
+            <p>
+              Evolving with new trends, technology, and global media practices.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title fade-in">Our Services</h2>
+        <div class="grid grid-2">
+          <div class="service-card fade-in stagger-1">
+            <div class="service-number">1</div>
+            <h4 style="font-size: 1.3rem; margin-bottom: 1rem">
+              Script Development & Screenwriting
+            </h4>
+            <p>
+              Compelling scripts crafted by seasoned professionals to suit every
+              format — film, television, web, and branded content.
+            </p>
+          </div>
+          <div class="service-card fade-in stagger-2">
+            <div class="service-number">2</div>
+            <h4 style="font-size: 1.3rem; margin-bottom: 1rem">
+              Production & Directing
+            </h4>
+            <p>
+              End-to-end production, from pre-visualization to final cut. Our
+              team handles feature films, short films, commercials, branded
+              content, and series.
+            </p>
+          </div>
+          <div class="service-card fade-in stagger-3">
+            <div class="service-number">3</div>
+            <h4 style="font-size: 1.3rem; margin-bottom: 1rem">
+              Talent & Content Development
+            </h4>
+            <p>
+              Discovering and nurturing fresh talent while creating diverse,
+              market-ready content for global audiences.
+            </p>
+          </div>
+          <div class="service-card fade-in stagger-4">
+            <div class="service-number">4</div>
+            <h4 style="font-size: 1.3rem; margin-bottom: 1rem">
+              Marketing & Distribution Strategy
+            </h4>
+            <p>
+              Juxtaposition marketing techniques that spotlight your story,
+              connecting audiences and delivering measurable impact.
+            </p>
+          </div>
+          <div class="service-card fade-in stagger-5">
+            <div class="service-number">5</div>
+            <h4 style="font-size: 1.3rem; margin-bottom: 1rem">
+              Media Consultancy
+            </h4>
+            <p>
+              Providing expertise to navigate media trends, optimize content
+              strategies, and position brands for long-term success.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Competitive Edge -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title fade-in">Our Competitive Edge</h2>
+        <div class="edge-item fade-in stagger-1">
+          <div class="edge-icon">🌍</div>
+          <div>
+            <h4 style="margin-bottom: 0.5rem">
+              Nigerian Essence with a Global Outlook
+            </h4>
+            <p>
+              Stories grounded in local authenticity but created for
+              international appeal.
+            </p>
+          </div>
+        </div>
+        <div class="edge-item fade-in stagger-2">
+          <div class="edge-icon">🎬</div>
+          <div>
+            <h4 style="margin-bottom: 0.5rem">Creative Excellence</h4>
+            <p>
+              Strong reputation as commercial and independent storytellers with
+              over a decade of experience.
+            </p>
+          </div>
+        </div>
+        <div class="edge-item fade-in stagger-3">
+          <div class="edge-icon">📱</div>
+          <div>
+            <h4 style="margin-bottom: 0.5rem">Versatile Delivery</h4>
+            <p>
+              From YouTube shorts to festival-ready feature films, we craft
+              content that suits diverse distribution models.
+            </p>
+          </div>
+        </div>
+        <div class="edge-item fade-in stagger-4">
+          <div class="edge-icon">🤝</div>
+          <div>
+            <h4 style="margin-bottom: 0.5rem">Strategic Partnerships</h4>
+            <p>
+              Extensive network across media professionals, production houses,
+              investors, and broadcasters.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Future Vision -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title fade-in">Our Future</h2>
+        <div class="card fade-in stagger-1" style="text-align: center">
+          <p style="font-size: 1.1rem">
+            Truss Media Group is set to grow into a global entertainment
+            ecosystem — comprising full-service studios, talent management, PR,
+            distribution, and a dedicated film & television arm — delivering
+            transformative content across all channels.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title fade-in">Contact Us</h2>
+        <div class="contact-grid">
+          <div class="contact-item fade-in stagger-1">
+            <div class="contact-icon">📍</div>
+            <h4 style="margin-bottom: 0.5rem">Location</h4>
+            <p>Lagos, Nigeria</p>
+          </div>
+          <div class="contact-item fade-in stagger-2">
+            <div class="contact-icon">✉️</div>
+            <h4 style="margin-bottom: 0.5rem">Email</h4>
+            <p>info@trussmediagroup.com</p>
+          </div>
+          <div class="contact-item fade-in stagger-3">
+            <div class="contact-icon">🌐</div>
+            <h4 style="margin-bottom: 0.5rem">Website</h4>
+            <p>www.trussmediagroup.com<br /><small>(coming soon)</small></p>
+          </div>
+        </div>
+
+        <div class="social-links fade-in stagger-4">
+          <a href="#" class="social-link" title="Instagram">📷</a>
+          <a href="#" class="social-link" title="Facebook">📘</a>
+          <a href="#" class="social-link" title="Twitter/X">🐦</a>
+          <a href="#" class="social-link" title="LinkedIn">💼</a>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Smooth scrolling for better UX
+      document.addEventListener("DOMContentLoaded", function () {
+        // Intersection Observer for animations
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.animationPlayState = "running";
+            }
+          });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll(".fade-in").forEach((el) => {
+          el.style.animationPlayState = "paused";
+          observer.observe(el);
+        });
+
+        // Parallax effect for hero
+        window.addEventListener("scroll", function () {
+          const scrolled = window.pageYOffset;
+          const hero = document.querySelector(".hero");
+          if (hero) {
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "Welcome to Truss Media Group Blog!",
+    "author": "Admin",
+    "date": "2025-06-20",
+    "content": "This is your first blog post. Use the admin form to add or edit more posts!",
+    "image": ""
+  },
+  {
+    "id": 2,
+    "title": "Behind the Scenes: Brand X Launch",
+    "author": "Jane Doe",
+    "date": "2025-06-01",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod.\n\nHow We Did It\nMorbi facilisis, sapien eu cursus cursus, sapien sapien cursus sapien, eu cursus sapien sapien eu cursus.\n\nResults\nAliquam erat volutpat. Integer facilisis, sapien eu cursus cursus, sapien sapien cursus sapien, eu cursus sapien sapien eu cursus.",
+    "image": "assets/blog1.jpg"
+  }
+]

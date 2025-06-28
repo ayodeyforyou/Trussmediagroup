@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Truss Media Group - Cinematic film production for brands that demand excellence. Portfolio, services, and contact."
+    />
+    <title>Truss Media Group | Cinematic Storytelling</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600&display=swap"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XXXXXXXXXX");
+    </script>
+  </head>
+  <body>
+    <!-- Skip to Content Link -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <video
+        class="hero__bg"
+        src="assets/hero-bg.mp4"
+        poster="assets/hero-fallback.jpg"
+        autoplay
+        muted
+        loop
+        playsinline
+        loading="lazy"
+      ></video>
+      <div class="hero__overlay"></div>
+      <div class="hero__topbar">
+        <div class="hero__logo">Truss Media</div>
+        <nav class="hero__nav">
+          <a href="#home" class="nav__link active">Home</a>
+          <a href="#services" class="nav__link">Services</a>
+          <a href="#about" class="nav__link">About</a>
+          <a href="#blog" class="nav__link">Blog</a>
+          <a href="#contact" class="nav__link">Contact</a>
+          <button class="theme-toggle" aria-label="Toggle light/dark mode">
+            <svg
+              class="theme-toggle__icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <circle cx="12" cy="12" r="5" fill="#d4af37" />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                stroke="#d4af37"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+        </nav>
+      </div>
+      <div class="hero__content">
+        <h1 class="hero__title">TRUSS MEDIA GROUP</h1>
+        <h2 class="hero__tagline">Now and Beyond</h2>
+        <p class="hero__subtitle">
+          Professional Screen-writing, Strategy, and Production services for
+          brands that demand excellence
+        </p>
+        <div class="hero__cta-group">
+          <a href="#contact" class="btn btn--secondary">Work With Us</a>
+          <a href="#services" class="btn btn--primary">See Our Work</a>
+          <a href="#contact" class="btn btn--secondary">Portfolio</a>
+        </div>
+        <div class="hero__scroll-indicator"><span></span></div>
+      </div>
+    </header>
+
+    <!-- CAROUSEL SECTION -->
+    <section class="carousel-section">
+      <h2 class="carousel-section__title">Our Cinematic Highlights</h2>
+      <div class="carousel" id="mediaCarousel">
+        <div class="carousel__track">
+          <div class="carousel__item">
+            <video
+              src="assets/carousel1.mp4"
+              poster="assets/carousel1.jpg"
+              controls
+              loading="lazy"
+              width="640"
+              height="360"
+            ></video>
+            <div class="carousel__caption">"Brand X Launch" – Commercial</div>
+          </div>
+          <div class="carousel__item">
+            <video
+              src="assets/carousel2.mp4"
+              poster="assets/carousel2.jpg"
+              controls
+              loading="lazy"
+              width="640"
+              height="360"
+            ></video>
+            <div class="carousel__caption">"The Journey" – Documentary</div>
+          </div>
+          <div class="carousel__item">
+            <video
+              src="assets/carousel3.mp4"
+              poster="assets/carousel3.jpg"
+              controls
+              loading="lazy"
+              width="640"
+              height="360"
+            ></video>
+            <div class="carousel__caption">"Golden Hour" – Music Video</div>
+          </div>
+          <div class="carousel__item">
+            <video
+              src="assets/carousel4.mp4"
+              poster="assets/carousel4.jpg"
+              controls
+              loading="lazy"
+              width="640"
+              height="360"
+            ></video>
+            <div class="carousel__caption">
+              "Corporate Vision 2025" – Corporate
+            </div>
+          </div>
+          <div class="carousel__item">
+            <video
+              src="assets/carousel5.mp4"
+              poster="assets/carousel5.jpg"
+              controls
+              loading="lazy"
+              width="640"
+              height="360"
+            ></video>
+            <div class="carousel__caption">
+              "Spotlight: Artist Y" – Music Video
+            </div>
+          </div>
+          <div class="carousel__item">
+            <video
+              src="assets/carousel6.mp4"
+              poster="assets/carousel6.jpg"
+              controls
+              loading="lazy"
+              width="640"
+              height="360"
+            ></video>
+            <div class="carousel__caption">
+              "Innovation Summit" – Event Recap
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT US SECTION -->
+    <section id="about" class="about">
+      <div class="about__container">
+        <div class="about__img-col">
+          <img
+            src="lo.jpg"
+            alt="Our Creative director bringing stories to life"
+            class="about__img"
+            loading="lazy"
+            width="640"
+            height="360"
+          />
+          <div class="about__img-caption">
+            Our creative director bringing stories to life
+          </div>
+        </div>
+        <div class="about__content-col">
+          <h2 class="about__headline">Passionate Storytellers Since 2012</h2>
+          <p>
+            What started as a passion for storytelling through filmmaking,
+            production, and screenwriting has grown into a dynamic media
+            powerhouse. Under Daniel Olaitan FM’s leadership, Truss Media Group
+            has evolved into a leading creative force, delivering captivating
+            films, innovative productions, and compelling scripts that resonate
+            with audiences worldwide. From humble beginnings to a thriving
+            company, Truss Media Group continues to push creative boundaries,
+            blending artistry with technical expertise to craft unforgettable
+            stories.
+          </p>
+          <p>
+            With a team of industry experts, we deliver world-class video
+            content for commercial, corporate, and creative clients.
+          </p>
+          <p>
+            We are committed to quality, creativity, and client satisfaction in
+            every frame we produce.
+          </p>
+          <div class="about__stats">
+            <div class="stat-box">
+              <span class="stat-box__num" data-count="50">0</span
+              ><span class="stat-box__label">Projects Completed</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-box__num" data-count="10">0</span
+              ><span class="stat-box__label">Years Experience</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-box__num" data-count="40">0</span
+              ><span class="stat-box__label">Happy Clients</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-box__num" data-count="8">0</span
+              ><span class="stat-box__label">Awards Won</span>
+            </div>
+          </div>
+          <a
+            href="team.html"
+            class="btn btn--secondary"
+            aria-label="Learn more about our team"
+            >Learn More</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="services">
+      <div class="services__container">
+        <h2 class="services__title">Our Services</h2>
+        <div class="services__grid">
+          <a href="service-commercial.html" class="service-card">
+            <span class="service-card__icon" aria-hidden="true">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect x="4" y="8" width="24" height="16" rx="2" fill="#222" />
+                <rect x="8" y="12" width="16" height="8" rx="1" fill="#fff" />
+                <rect x="12" y="20" width="8" height="2" rx="1" fill="#bbb" />
+              </svg>
+            </span>
+            <div class="service-card__title">Commercial Production</div>
+            <div class="service-card__desc">
+              High-impact commercials for brands and agencies.
+            </div>
+          </a>
+          <a href="service-documentary.html" class="service-card">
+            <span class="service-card__icon" aria-hidden="true">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="16" cy="16" r="12" fill="#222" />
+                <rect x="12" y="12" width="8" height="8" rx="2" fill="#fff" />
+              </svg>
+            </span>
+            <div class="service-card__title">Documentary</div>
+            <div class="service-card__desc">
+              Award-winning documentary storytelling.
+            </div>
+          </a>
+          <a href="service-corporate.html" class="service-card">
+            <span class="service-card__icon" aria-hidden="true">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect x="6" y="10" width="20" height="12" rx="2" fill="#222" />
+                <rect x="10" y="14" width="12" height="4" rx="1" fill="#fff" />
+              </svg>
+            </span>
+            <div class="service-card__title">Corporate Videos</div>
+            <div class="service-card__desc">
+              Professional videos for business communication.
+            </div>
+          </a>
+          <a href="service-music.html" class="service-card">
+            <span class="service-card__icon" aria-hidden="true">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="10" cy="22" r="4" fill="#222" />
+                <rect x="14" y="8" width="8" height="12" rx="2" fill="#222" />
+                <rect x="18" y="8" width="2" height="12" fill="#fff" />
+              </svg>
+            </span>
+            <div class="service-card__title">Music Videos</div>
+            <div class="service-card__desc">
+              Creative music videos for artists and labels.
+            </div>
+          </a>
+          <a href="service-post.html" class="service-card">
+            <span class="service-card__icon" aria-hidden="true">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect x="8" y="12" width="16" height="8" rx="2" fill="#222" />
+                <rect x="12" y="16" width="8" height="2" rx="1" fill="#fff" />
+              </svg>
+            </span>
+            <div class="service-card__title">Post-Production</div>
+            <div class="service-card__desc">
+              Editing, color, VFX, and finishing services.
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section id="team" class="team">
+      <div class="team__container">
+        <h2 class="team__title">Meet Our Team</h2>
+        <div class="team__grid">
+          <a
+            href="team.html#jane-doe"
+            class="team-card"
+            tabindex="0"
+            aria-label="View profile for Jane Doe"
+          >
+            <img
+              src="team-2.jpg"
+              alt="Jane Doe, Director & Founder"
+              class="team-card__img"
+              loading="lazy"
+              width="640"
+              height="360"
+            />
+            <div class="team-card__name">Mrs Macaroni</div>
+            <div class="team-card__role">Director & Founder</div>
+            <div class="team-card__exp">15 yrs experience</div>
+          </a>
+          <a
+            href="team.html#john-smith"
+            class="team-card"
+            tabindex="0"
+            aria-label="View profile for John Smith"
+          >
+            <img
+              src="team-1.jpg"
+              alt="John Smith, Head of Production"
+              class="team-card__img"
+              loading="lazy"
+              width="640"
+              height="360"
+            />
+            <div class="team-card__name">Asake Boys</div>
+            <div class="team-card__role">Head of Production</div>
+            <div class="team-card__exp">12 yrs experience</div>
+          </a>
+          <a
+            href="team.html#alex-lee"
+            class="team-card"
+            tabindex="0"
+            aria-label="View profile for Alex Lee"
+          >
+            <img
+              src="black-man-posing.jpg"
+              alt="Alex Lee, Cinematographer"
+              class="team-card__img"
+              loading="lazy"
+              width="640"
+              height="360"
+            />
+            <div class="team-card__name">Rahman Jago</div>
+            <div class="team-card__role">Cinematographer</div>
+            <div class="team-card__exp">10 yrs experience</div>
+          </a>
+          <a
+            href="team.html#sam-patel"
+            class="team-card"
+            tabindex="0"
+            aria-label="View profile for Sam Patel"
+          >
+            <img
+              src="smiley-african-woman-with-golden-earrings.jpg"
+              alt="Abosede, Editor"
+              class="team-card__img"
+              loading="lazy"
+              width="640"
+              height="360"
+            />
+            <div class="team-card__name">Abosede</div>
+            <div class="team-card__role">Editor</div>
+            <div class="team-card__exp">8 yrs experience</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials">
+      <div class="testimonials__container">
+        <h2 class="testimonials__title">What Our Clients Say</h2>
+        <div class="testimonials__carousel">
+          <div class="testimonial-card">
+            <div class="testimonial-card__video">
+              <video
+                src="assets/testimonial1.mp4"
+                poster="assets/testimonial1.jpg"
+                controls
+                loading="lazy"
+                width="640"
+                height="360"
+              ></video>
+            </div>
+            <div class="testimonial-card__body">
+              <div class="testimonial-card__quote">
+                “Truss Media delivered beyond our expectations. The commercial
+                was a game changer!”
+              </div>
+              <div class="testimonial-card__client">— Sarah B., Brand X</div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-card__body">
+              <div class="testimonial-card__quote">
+                “Professional, creative, and always on time. Highly recommended
+                for corporate video.”
+              </div>
+              <div class="testimonial-card__client">
+                — Michael T., Acme Corp
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-card__body">
+              <div class="testimonial-card__quote">
+                “Their documentary team captured our story perfectly. We won an
+                award!”
+              </div>
+              <div class="testimonial-card__client">— Lisa M., Discovery</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG SECTION -->
+    <section id="blog" class="blog section-fade">
+      <h2>Latest Blog Posts</h2>
+      <div id="blogList"></div>
+    </section>
+    <script>
+      // Fetch and render blogs
+      async function loadBlogs() {
+        const blogList = document.getElementById("blogList");
+        blogList.innerHTML = "Loading...";
+        try {
+          const res = await fetch("/api/blogs");
+          const blogs = await res.json();
+          if (!blogs.length) {
+            blogList.innerHTML = "<em>No blog posts yet.</em>";
+            return;
+          }
+          blogList.innerHTML = blogs
+            .map(
+              (blog) => `
+          <article class="blog-post" style="margin-bottom:2em;">
+            ${
+              blog.image
+                ? `<img src="${blog.image}" alt="${blog.title}" style="max-width:100%;height:auto;" loading="lazy">`
+                : ""
+            }
+            <h3>${blog.title}</h3>
+            <div style="font-size:0.95em;color:#888;">By ${blog.author} on ${
+                blog.date
+              }</div>
+            <p>${blog.content.replace(/\n/g, "<br>")}</p>
+          </article>
+        `
+            )
+            .join("");
+        } catch (e) {
+          blogList.innerHTML =
+            '<span style="color:red;">Failed to load blogs.</span>';
+        }
+      }
+      loadBlogs();
+    </script>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+      <div class="contact__container">
+        <div class="contact__form-col">
+          <form
+            id="contactForm"
+            class="contact__form"
+            autocomplete="off"
+            novalidate
+            aria-labelledby="contactFormTitle"
+          >
+            <h2 id="contactFormTitle">Start Your Project</h2>
+            <div class="form__group">
+              <label for="name"
+                >Name* <span class="sr-only">(required)</span></label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                aria-required="true"
+                aria-label="Name"
+              />
+            </div>
+            <div class="form__group">
+              <label for="email"
+                >Email* <span class="sr-only">(required)</span></label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                aria-required="true"
+                aria-label="Email"
+              />
+            </div>
+            <div class="form__group">
+              <label for="message"
+                >Message* <span class="sr-only">(required)</span></label
+              >
+              <textarea
+                id="message"
+                name="message"
+                required
+                aria-required="true"
+                aria-label="Message"
+              ></textarea>
+            </div>
+            <div class="form__group">
+              <label for="captcha"
+                >What is <span id="captcha-question"></span>? *
+                <span class="sr-only">(required)</span></label
+              >
+              <input
+                type="text"
+                id="captcha"
+                name="captcha"
+                required
+                aria-required="true"
+                aria-label="Captcha answer"
+                autocomplete="off"
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn btn--primary"
+              id="submitBtn"
+              aria-label="Send Message"
+            >
+              <span id="submitText">Send Message</span>
+              <span
+                id="spinner"
+                style="display: none; margin-left: 8px; vertical-align: middle"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 50 50"
+                  aria-hidden="true"
+                >
+                  <circle
+                    cx="25"
+                    cy="25"
+                    r="20"
+                    fill="none"
+                    stroke="#d4af37"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                    stroke-dasharray="31.415, 31.415"
+                    transform="rotate(72.0001 25 25)"
+                  >
+                    <animateTransform
+                      attributeName="transform"
+                      type="rotate"
+                      from="0 25 25"
+                      to="360 25 25"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </circle>
+                </svg>
+              </span>
+            </button>
+            <div class="form__privacy">
+              By submitting, you agree to our
+              <a href="#" tabindex="-1">privacy policy</a>.
+            </div>
+            <div id="formStatus" aria-live="polite" aria-atomic="true"></div>
+          </form>
+        </div>
+        <div class="contact__info-col">
+          <div class="contact__info-block">
+            <h3>Contact Info</h3>
+            <p><strong>Address:</strong> Lekki, Lagos</p>
+            <div class="contact__map">
+              <iframe
+                src="https://maps.google.com/maps?q=Lekki+Lagos&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameborder="0"
+                allowfullscreen=""
+                aria-hidden="false"
+                tabindex="0"
+              ></iframe>
+            </div>
+            <p>
+              <strong>Phone:</strong>
+              <a href="tel:07032729696">07032729696</a>
+            </p>
+            <p>
+              <strong>Email:</strong>
+              <a href="mailto:DanielOlowoinuora@gmail.com"
+                >DanielOlowoinuora@gmail.com</a
+              >
+            </p>
+            <p><strong>Business Hours:</strong> Mon-Fri 9am-6pm</p>
+            <div class="contact__socials">
+              <a href="[INSTAGRAM_URL]" aria-label="Instagram">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" fill="#222" />
+                  <circle cx="12" cy="12" r="5" fill="#fff" />
+                  <circle cx="18" cy="6" r="1.5" fill="#fff" />
+                </svg>
+              </a>
+              <a href="[YOUTUBE_URL]" aria-label="YouTube">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect x="2" y="6" width="20" height="12" rx="4" fill="#222" />
+                  <polygon points="10,9 16,12 10,15" fill="#fff" />
+                </svg>
+              </a>
+              <a href="[LINKEDIN_URL]" aria-label="LinkedIn">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="4" fill="#222" />
+                  <rect x="6" y="10" width="2" height="6" fill="#fff" />
+                  <rect x="11" y="10" width="2" height="6" fill="#fff" />
+                  <rect x="6" y="7" width="2" height="2" fill="#fff" />
+                </svg>
+              </a>
+              <a href="[VIMEO_URL]" aria-label="Vimeo">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="4" fill="#222" />
+                  <path
+                    d="M7 15c1-2 3-4 5-2s2 4 4 2"
+                    stroke="#fff"
+                    stroke-width="2"
+                    fill="none"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div class="contact__calendar">
+              <iframe
+                src="https://calendar.google.com/calendar/embed?src=yourcompany%40gmail.com&ctz=America%2FNew_York"
+                style="border: 0"
+                width="100%"
+                height="200"
+                frameborder="0"
+                scrolling="no"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer class="footer" role="contentinfo">
+      <div class="footer__container">
+        <div class="footer__brand-col">
+          <div class="footer__logo" aria-label="Truss Media Group logo">
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <rect x="2" y="2" width="36" height="36" rx="8" fill="#222" />
+              <text
+                x="50%"
+                y="55%"
+                text-anchor="middle"
+                fill="#fff"
+                font-size="18"
+                font-family="Montserrat, Arial, sans-serif"
+                dy=".3em"
+              >
+                TMG
+              </text>
+            </svg>
+          </div>
+          <div class="footer__desc">
+            Cinematic film production for brands that demand excellence.
+          </div>
+        </div>
+        <nav class="footer__nav-col" aria-label="Footer navigation">
+          <ul class="footer__nav-list">
+            <li><a href="#home" class="footer__nav-link">Home</a></li>
+            <li><a href="#services" class="footer__nav-link">Services</a></li>
+            <li><a href="#about" class="footer__nav-link">About</a></li>
+            <li><a href="#blog" class="footer__nav-link">Blog</a></li>
+            <li><a href="#contact" class="footer__nav-link">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer__contact-col">
+          <div class="footer__contact-title">Contact</div>
+          <ul class="footer__contact-list">
+            <li>
+              <span class="footer__contact-label">Address:</span>
+              Lekki, Lagos
+            </li>
+            <li>
+              <span class="footer__contact-label">Phone:</span>
+              <a href="tel:07032729699">07032729699</a>
+            </li>
+            <li>
+              <span class="footer__contact-label">Email:</span>
+              <a href="mailto:DanielOlowoinora@gmail.com"
+                >DanielOlowoinora@gmail.com</a
+              >
+            </li>
+          </ul>
+          <div class="footer__socials" aria-label="Social media links">
+            <a
+              href="[INSTAGRAM_URL]"
+              aria-label="Instagram"
+              class="footer__social-link"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="2" width="20" height="20" rx="5" fill="#222" />
+                <circle cx="12" cy="12" r="5" fill="#fff" />
+                <circle cx="18" cy="6" r="1.5" fill="#fff" />
+              </svg>
+            </a>
+            <a
+              href="[YOUTUBE_URL]"
+              aria-label="YouTube"
+              class="footer__social-link"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="6" width="20" height="12" rx="4" fill="#222" />
+                <polygon points="10,9 16,12 10,15" fill="#fff" />
+              </svg>
+            </a>
+            <a
+              href="[LINKEDIN_URL]"
+              aria-label="LinkedIn"
+              class="footer__social-link"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="2" width="20" height="20" rx="4" fill="#222" />
+                <rect x="6" y="10" width="2" height="6" fill="#fff" />
+                <rect x="11" y="10" width="2" height="6" fill="#fff" />
+                <rect x="6" y="7" width="2" height="2" fill="#fff" />
+              </svg>
+            </a>
+            <a
+              href="[VIMEO_URL]"
+              aria-label="Vimeo"
+              class="footer__social-link"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="2" width="20" height="20" rx="4" fill="#222" />
+                <path
+                  d="M7 15c1-2 3-4 5-2s2 4 4 2"
+                  stroke="#fff"
+                  stroke-width="2"
+                  fill="none"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__copyright">
+          &copy; 2025 Truss Media Group. All rights reserved.
+        </div>
+        <div class="footer__privacy-links">
+          <a href="#" class="footer__privacy-link">Privacy Policy</a>
+          <span aria-hidden="true">|</span>
+          <a href="#" class="footer__privacy-link">Terms of Service</a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="page-transition" id="pageTransition"></div>
+
+    <script src="script.js"></script>
+    <script>
+      // Math captcha logic
+      function generateCaptcha() {
+        const a = Math.floor(Math.random() * 10) + 1;
+        const b = Math.floor(Math.random() * 10) + 1;
+        document.getElementById("captcha-question").textContent = `${a} + ${b}`;
+        document.getElementById("captcha").setAttribute("data-answer", a + b);
+      }
+      document.addEventListener("DOMContentLoaded", generateCaptcha);
+
+      // Section fade-in on scroll
+      function revealSections() {
+        document.querySelectorAll(".section-fade").forEach((section) => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 60) {
+            section.classList.add("visible");
+          }
+        });
+      }
+      window.addEventListener("scroll", revealSections);
+      window.addEventListener("DOMContentLoaded", () => {
+        revealSections();
+        // Page transition effect
+        const pt = document.getElementById("pageTransition");
+        if (pt) {
+          setTimeout(() => pt.classList.add("hide"), 400);
+        }
+      });
+    </script>
+    <style>
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+      /* Smooth fade-in for sections */
+      .section-fade {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+          transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .section-fade.visible {
+        opacity: 1;
+        transform: none;
+      }
+      /* Page transition overlay */
+      .page-transition {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: 9999;
+        opacity: 1;
+        pointer-events: none;
+        transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .page-transition.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
+  </body>
+</html>
