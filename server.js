@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 4000;
 
 app.use(cors());
 app.use(morgan('dev'));
-app.use(express.json());
+app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
 app.post('/api/contact', async (req, res) => {
