@@ -25,24 +25,22 @@ const limiter = rateLimit({
 });
 app.use('/api/contact', limiter);
 
-// CORS: allow only your domain and localhost
+// CORS: allow your frontend domains
 app.use(cors({
   origin: [
     'http://localhost:5500', // Live Server default
     'http://localhost:4000',
-    'https://your-production-domain.com'
+    'https://https://ayodeyforyou.github.io/Trussmediagroup', // Replace with your actual GitHub Pages URL
+    'https://trussmediagroup.com' // Replace with your custom domain if you have one
   ]
 }));
 
 // Use helmet for secure HTTP headers
 app.use(helmet());
 
-// Error logging middleware
-const errorLogStream = fs.createWriteStream(path.join(__dirname, 'error.log'), { flags: 'a' });
-
+// Simple in-memory error logging for now (since file system is read-only)
 app.use((err, req, res, next) => {
-  const logEntry = `[${new Date().toISOString()}] ${req.method} ${req.url} - ${err.message}\n`;
-  errorLogStream.write(logEntry);
+  const logEntry = `[${new Date().toISOString()}] ${req.method} ${req.url} - ${err.message}`;
   console.error(logEntry);
   res.status(500).json({ error: 'Internal server error' });
 });
@@ -70,7 +68,7 @@ app.post('/api/contact',
       'cocojess3030@gmail.com' // Add more admin emails as needed
     ];
 
-    const transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransporter({
       service: 'gmail',
       auth: {
         user: process.env.GMAIL_USER,
@@ -119,7 +117,8 @@ app.post('/api/contact',
   }
 );
 
-const BLOGS_FILE = path.join(__dirname, 'blogs.json');
+// Use /tmp directory for Render (temporary storage)
+const BLOGS_FILE = path.join('/tmp', 'blogs.json');
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'changeme';
 
 // Helper: Read blogs
@@ -182,9 +181,9 @@ app.put('/api/blogs/:id', (req, res) => {
   res.json({ success: true, blog: blogs[idx] });
 });
 
-// Set up multer for file uploads
-const uploadDir = path.join(__dirname, 'uploads');
-if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
+// Set up multer for file uploads to /tmp directory
+const uploadDir = path.join('/tmp', 'uploads');
+if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, uploadDir),
   filename: (req, file, cb) => {
@@ -196,14 +195,13 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Serve uploaded files statically
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(uploadDir));
 
 // Logo upload endpoint (admin only)
 app.post('/api/upload/logo', upload.single('logo'), (req, res) => {
   const { password } = req.body;
   if (password !== ADMIN_PASSWORD) return res.status(401).json({ error: 'Unauthorized' });
   if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
-  // Optionally, save logo filename to a settings file
   res.json({ success: true, url: `/uploads/${req.file.filename}` });
 });
 
@@ -222,6 +220,11 @@ app.get('/api/media', (req, res) => {
     const urls = files.filter(f => /\.(jpg|jpeg|png|gif|webp)$/i.test(f)).map(f => `/uploads/${f}`);
     res.json(urls);
   });
+});
+
+// Basic health check endpoint
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'OK', message: 'Server is running' });
 });
 
 app.listen(PORT, () => {
