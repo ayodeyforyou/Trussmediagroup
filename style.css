@@ -30,7 +30,7 @@
 body.light-mode {
   --color-bg: #fff;
   --color-text: #181818;
-  --color-accent: #1a4fd7; /* Royal Blue as primary accent */
+  --color-accent: #34477c; /* Royal Blue as primary accent */
   --color-accent-secondary: #d4af37; /* Gold as secondary accent */
   --color-nav-bg: #f8f8f8;
   --color-nav-text: #181818;
@@ -85,7 +85,9 @@ body {
 }
 
 body.light-mode .hero {
-  background: var(--color-accent); /* Royal blue background for hero section in light mode */
+  background: var(
+    --color-accent
+  ); /* Royal blue background for hero section in light mode */
 }
 
 .hero__bg {
@@ -1897,7 +1899,7 @@ body.light-mode a.important-link {
 #blogsSection {
   background: var(--dark-bg-2);
   border-radius: var(--radius);
-  box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
   padding: 2em 1.5em;
   color: var(--white);
 }
@@ -1915,9 +1917,10 @@ body.light-mode a.important-link {
   border-radius: var(--radius);
   overflow: hidden;
   color: var(--white);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
 }
-.blog-table th, .blog-table td {
+.blog-table th,
+.blog-table td {
   padding: 1.1em 1em;
   border-bottom: 1px solid #232323;
   text-align: left;
@@ -1945,7 +1948,7 @@ body.light-mode a.important-link {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
-  box-shadow: 0 1px 4px rgba(212,175,55,0.08);
+  box-shadow: 0 1px 4px rgba(212, 175, 55, 0.08);
 }
 .blog-actions button.delete {
   background: #e53935;
@@ -1960,7 +1963,7 @@ body.light-mode a.important-link {
   background: #232323;
   padding: 2em 1.5em;
   border-radius: var(--radius);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
 .blog-form label {
   font-weight: 600;
@@ -1968,7 +1971,8 @@ body.light-mode a.important-link {
   display: block;
   color: var(--gold);
 }
-.blog-form input, .blog-form textarea {
+.blog-form input,
+.blog-form textarea {
   width: 100%;
   padding: 0.8em;
   margin-top: 0.3em;
@@ -1979,7 +1983,8 @@ body.light-mode a.important-link {
   color: var(--white);
   transition: border 0.2s;
 }
-.blog-form input:focus, .blog-form textarea:focus {
+.blog-form input:focus,
+.blog-form textarea:focus {
   border: 1.5px solid var(--gold);
   outline: none;
 }
@@ -1994,7 +1999,7 @@ body.light-mode a.important-link {
   font-weight: 700;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
-  box-shadow: 0 1px 4px rgba(212,175,55,0.08);
+  box-shadow: 0 1px 4px rgba(212, 175, 55, 0.08);
 }
 .blog-form button:hover {
   background: var(--gold-light);
@@ -2013,7 +2018,8 @@ body.light-mode a.important-link {
   .blog-form {
     padding: 1em 0.5em;
   }
-  .blog-table th, .blog-table td {
+  .blog-table th,
+  .blog-table td {
     padding: 0.7em 0.5em;
     font-size: 0.98em;
   }
