@@ -130,6 +130,7 @@ body.light-mode .hero {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1.2rem 4vh 4vh 2rem;
 }
 
 .logo-img {
