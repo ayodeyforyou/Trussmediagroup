@@ -1,3 +1,16 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* Smooth scrolling for all elements */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Custom smooth scrolling with transition */
+body {
+  transition: all 0.3s ease-in-out;
+}
 /*
   style.css - Cinematic Film Company Website (Phase 1)
   Theme: Dark with gold accents, modern, cinematic, responsive
@@ -85,9 +98,7 @@ body {
 }
 
 body.light-mode .hero {
-  background: var(
-    --color-accent
-  ); /* Royal blue background for hero section in light mode */
+  background-image: url("02.png");
 }
 
 .hero__bg {
@@ -119,14 +130,12 @@ body.light-mode .hero {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2.2rem 4vw 0.5rem 4vw;
 }
-.hero__logo {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--color-accent);
-  letter-spacing: 2px;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+
+.logo-img {
+  width: 240px; /* or any size you want */
+  height: auto;
+  display: block;
 }
 .hero__hamburger {
   display: none;
@@ -2023,4 +2032,173 @@ body.light-mode a.important-link {
     padding: 0.7em 0.5em;
     font-size: 0.98em;
   }
+}
+/* Ensure the desktop nav is always visible by
+
+
+
+
+
+/* --- RESPONSIVE DESIGN (MEDIA QUERIES) --- */
+
+/* Tablet and Smaller Desktops (e.g., up to 992px) */
+@media (max-width: 992px) {
+  .hero__topbar {
+    padding: 1.5rem 3%; /* Adjust padding for smaller screens */
+  }
+
+  /* === Navigation Changes for Mobile/Tablet === */
+  .hero__nav {
+    /* OVERRIDE: Hide desktop nav and prepare for off-canvas mobile menu */
+    display: none; /* Hide the desktop navigation at this breakpoint */
+
+    /* Styles for the mobile/off-canvas menu when it's activated by JS */
+    flex-direction: column; /* Stack links vertically */
+    position: fixed; /* Position fixed relative to viewport */
+    top: 0;
+    right: -100%; /* Initially off-screen to the right */
+    width: 70%; /* Take up 70% of the screen width */
+    max-width: 300px; /* Limit max width for larger tablets */
+    height: 100vh; /* Full viewport height */
+    background: var(--dark-bg); /* A solid background for the menu */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    padding: 8rem 2rem 2rem; /* Top padding for content below hamburger */
+    transition: right 0.3s ease-in-out; /* Smooth transition for opening/closing */
+    z-index: 1000; /* Ensure it's above other content */
+    gap: 1.5rem; /* Adjust gap for stacked links */
+    align-items: flex-start; /* Align links to the left */
+  }
+
+  .hero__nav.open {
+    /* Class added by JavaScript when menu is active */
+    right: 0; /* Slide in from the right */
+  }
+
+  .nav__link {
+    font-size: 1.2rem; /* Slightly larger links for touch targets */
+    padding: 0.5rem 0; /* Add some vertical padding */
+  }
+
+  .nav__link.active::after,
+  .nav__link:hover::after {
+    margin: 0; /* Remove auto margin to align underline left */
+    width: 80%; /* Adjust underline width for mobile */
+  }
+
+  .hero__hamburger {
+    display: flex; /* Show the hamburger icon at this breakpoint */
+    margin-right: 1.5rem; /* Add some spacing from the edge */
+    z-index: 1001; /* Ensure hamburger is above the mobile menu */
+  }
+
+  /* Hamburger active state (for animation) */
+  .hero__hamburger.open .hamburger__bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hero__hamburger.open .hamburger__bar:nth-child(2) {
+    opacity: 0; /* Hide middle bar */
+  }
+
+  .hero__hamburger.open .hamburger__bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* === Hero Content Adjustments === */
+  .hero__title {
+    font-size: 2.8rem; /* Adjust title size */
+    letter-spacing: 2px;
+  }
+
+  .hero__tagline {
+    font-size: 1.8rem; /* Adjust tagline size */
+    letter-spacing: 1.5px;
+  }
+
+  .hero__subtitle {
+    font-size: 1.1rem; /* Adjust subtitle size */
+    max-width: 80%; /* Give it more room on smaller screens */
+  }
+
+  .hero__cta-group {
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center stacked buttons */
+    gap: 1rem; /* Adjust gap for vertical stacking */
+  }
+
+  .btn {
+    width: 80%; /* Make buttons take more width */
+    max-width: 300px; /* Limit max width of buttons */
+  }
+
+  .hero__scroll-indicator {
+    margin-top: 2rem; /* Adjust margin */
+  }
+}
+
+/* Mobile Devices (e.g., up to 768px) */
+@media (max-width: 768px) {
+  .hero__topbar {
+    padding: 1.2rem 2%; /* Further adjust padding */
+  }
+
+  .logo-img {
+    width: 180px; /* Smaller logo for mobile */
+  }
+
+  .hero__title {
+    font-size: 2.2rem; /* Smaller title for very small screens */
+  }
+
+  .hero__tagline {
+    font-size: 1.5rem; /* Smaller tagline */
+  }
+
+  .hero__subtitle {
+    font-size: 1rem; /* Smaller subtitle */
+    margin-bottom: 1.5rem;
+  }
+
+  .hero__cta-group {
+    margin-bottom: 2rem;
+  }
+
+  .hero__scroll-indicator {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Extra Small Devices (e.g., up to 480px) */
+@media (max-width: 480px) {
+  .logo-img {
+    width: 150px; /* Even smaller logo */
+  }
+  .hero__hamburger {
+    width: 35px;
+    height: 35px;
+  }
+  .hamburger__bar {
+    width: 25px;
+  }
+  .hero__title {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+  .hero__tagline {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+  .hero__subtitle {
+    font-size: 0.9rem;
+    padding: 0 1rem; /* Add horizontal padding to prevent text touching edges */
+  }
+  .btn {
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+  }
+}
+
+/* Global Utility for preventing scroll when mobile menu is open */
+body.no-scroll {
+  overflow: hidden;
 }
