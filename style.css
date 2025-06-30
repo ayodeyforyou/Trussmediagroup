@@ -187,7 +187,7 @@ body.light-mode .hero {
 }
 .hero__content {
   position: relative;
-  z-index: 3;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2050,28 +2050,34 @@ body.light-mode a.important-link {
   /* === Navigation Changes for Mobile/Tablet === */
   .hero__nav {
     /* OVERRIDE: Hide desktop nav and prepare for off-canvas mobile menu */
-    display: none; /* Hide the desktop navigation at this breakpoint */
+    display: flex; /* Hide the desktop navigation at this breakpoint */
+    visibility: hidden;
 
+    opacity: 0;
     /* Styles for the mobile/off-canvas menu when it's activated by JS */
     flex-direction: column; /* Stack links vertically */
     position: fixed; /* Position fixed relative to viewport */
     top: 0;
     right: -100%; /* Initially off-screen to the right */
-    width: 70%; /* Take up 70% of the screen width */
+    width: 60%; /* Take up 60% of the screen width */
     max-width: 300px; /* Limit max width for larger tablets */
     height: 100vh; /* Full viewport height */
     background: var(--dark-bg); /* A solid background for the menu */
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3); /* Subtle shadow */
     padding: 8rem 2rem 2rem; /* Top padding for content below hamburger */
     transition: right 0.3s ease-in-out; /* Smooth transition for opening/closing */
-    z-index: 1000; /* Ensure it's above other content */
+    z-index: 1002; /* Ensure it's above other content */
     gap: 1.5rem; /* Adjust gap for stacked links */
     align-items: flex-start; /* Align links to the left */
   }
 
   .hero__nav.open {
+    visibility: visible;
+
+    opacity: 1;
     /* Class added by JavaScript when menu is active */
     right: 0; /* Slide in from the right */
+    z-index: 1000;
   }
 
   .nav__link {
@@ -2088,7 +2094,7 @@ body.light-mode a.important-link {
   .hero__hamburger {
     display: flex; /* Show the hamburger icon at this breakpoint */
     margin-right: 1.5rem; /* Add some spacing from the edge */
-    z-index: 1001; /* Ensure hamburger is above the mobile menu */
+    /* Ensure hamburger is above the mobile menu */
   }
 
   /* Hamburger active state (for animation) */
