@@ -440,3 +440,50 @@ function debounce(func, wait) {
 // Export functions for global access
 window.openLightbox = openLightbox;
 window.generateCaptcha = generateCaptcha;
+
+// --- Staggered Scroll Animation ---
+(function () {
+  // Feature detection for Intersection Observer
+  var supportsIntersectionObserver = 'IntersectionObserver' in window;
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function revealElements() {
+    var elements = document.querySelectorAll('.reveal-on-scroll');
+    if (prefersReducedMotion) {
+      elements.forEach(function (el) {
+        el.classList.add('revealed');
+      });
+      return;
+    }
+    if (supportsIntersectionObserver) {
+      var observer = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var el = entry.target;
+            var delay = parseFloat(el.getAttribute('data-reveal-delay')) || 0;
+            setTimeout(function () {
+              el.classList.add('revealed');
+            }, delay);
+            obs.unobserve(el);
+          }
+        });
+      }, {
+        threshold: 0.15
+      });
+      elements.forEach(function (el, i) {
+        // If no custom delay, stagger by index
+        if (!el.hasAttribute('data-reveal-delay')) {
+          el.setAttribute('data-reveal-delay', i * 80);
+        }
+        observer.observe(el);
+      });
+    } else {
+      // Fallback: reveal all immediately
+      elements.forEach(function (el) {
+        el.classList.add('revealed');
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', revealElements);
+})();

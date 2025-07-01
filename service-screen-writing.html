@@ -3,30 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Commercial Production | Truss Media Group</title>
+    <title>Script Writing & Screen Development | Truss Media Group</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- Breadcrumb Navigation -->
-    <nav class="breadcrumb">
-      <a href="index.html">Home</a> &gt; <a href="#services">Services</a> &gt;
-      Commercial Production
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <button
+        onclick="window.location.href='index.html'"
+        class="breadcrumb-btn"
+      >
+        <span>← Back to Home</span>
+      </button>
     </nav>
     <!-- Hero Section -->
     <header class="service-hero">
-      <video
+      <img
         class="service-hero__media"
-        src="assets/commercial-hero.mp4"
-        poster="assets/commercial-hero.jpg"
-        autoplay
-        muted
-        loop
-        playsinline
-      ></video>
+        src="assets/script-hero.jpg"
+        alt="Script Writing and Screen Development"
+        style="width: 100%; height: auto; object-fit: cover"
+      />
       <div class="service-hero__overlay"></div>
       <div class="service-hero__content">
-        <h1>Commercial Production</h1>
-        <p>High-impact commercials for brands and agencies.</p>
+        <h1>Script Writing & Screen Development</h1>
+        <p>Crafting compelling stories for film, TV, and digital media.</p>
       </div>
     </header>
     <main class="service-main">
@@ -34,16 +35,18 @@
       <section class="service-overview">
         <h2>What We Deliver</h2>
         <p>
-          We create cinematic commercials that captivate audiences and elevate
-          brands. From concept to final cut, our team delivers creative,
-          results-driven video content tailored to your goals.
+          Our team of experienced screenwriters and story developers bring your
+          vision to life with original, engaging, and market-ready scripts. We
+          specialize in feature films, TV series, branded content, and digital
+          storytelling, ensuring every narrative is tailored to captivate your
+          audience.
         </p>
         <ul class="service-features">
-          <li>Creative concepting & scriptwriting</li>
-          <li>Full crew & equipment</li>
-          <li>Location scouting & casting</li>
-          <li>Professional direction & production</li>
-          <li>Broadcast-ready post-production</li>
+          <li>Original script writing for film, TV, and digital</li>
+          <li>Script doctoring and rewrites</li>
+          <li>Story development and concept ideation</li>
+          <li>Character and world building</li>
+          <li>Pitch decks and treatment creation</li>
         </ul>
       </section>
       <!-- Our Process -->
@@ -51,14 +54,16 @@
         <h2>Our Process</h2>
         <ol>
           <li>
-            <strong>Pre-Production:</strong> Discovery, creative, planning,
-            casting, locations
+            <strong>Discovery:</strong> Understanding your vision, goals, and
+            audience
           </li>
           <li>
-            <strong>Production:</strong> Filming, direction, on-set management
+            <strong>Development:</strong> Brainstorming, outlining, and drafting
+            scripts
           </li>
           <li>
-            <strong>Post-Production:</strong> Editing, color, sound, delivery
+            <strong>Refinement:</strong> Feedback, revisions, and polishing for
+            production readiness
           </li>
         </ol>
       </section>
@@ -66,31 +71,53 @@
       <section class="service-portfolio">
         <h2>Portfolio Examples</h2>
         <div class="portfolio__grid">
-          <div class="portfolio-card">
+          <div class="portfolio-card custom-portfolio-card">
             <img
-              src="assets/portfolio1-thumb.jpg"
-              alt="Brand X Launch Commercial"
+              src="assets/portfolio-script1.jpg"
+              alt="The Journey Home - Feature Film Script"
+              class="portfolio-card__thumb"
+            />
+            <div class="portfolio-card__body">
+              <div class="portfolio-card__title">The Journey Home</div>
+              <div class="portfolio-card__meta">Feature Film • Drama</div>
+              <div class="portfolio-card__desc">
+                An original screenplay that follows a family's emotional journey
+                across continents. Optioned by a major studio and praised for
+                its character depth and narrative structure.
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-card custom-portfolio-card">
+            <img
+              src="assets/portfolio-script2.jpg"
+              alt="Urban Beats - TV Series Development"
+              class="portfolio-card__thumb"
+            />
+            <div class="portfolio-card__body">
+              <div class="portfolio-card__title">Urban Beats</div>
+              <div class="portfolio-card__meta">TV Series • Youth/Drama</div>
+              <div class="portfolio-card__desc">
+                Developed the series bible and pilot episode for a youth-focused
+                streaming platform. The show explores the lives of young
+                creatives in a bustling city.
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-card custom-portfolio-card">
+            <img
+              src="assets/portfolio-script3.jpg"
+              alt="Brand X Commercial Script"
               class="portfolio-card__thumb"
             />
             <div class="portfolio-card__body">
               <div class="portfolio-card__title">Brand X Launch</div>
-              <div class="portfolio-card__meta">Brand X • Commercial</div>
-              <div class="portfolio-card__desc">
-                Award-winning national TV spot for Brand X.
+              <div class="portfolio-card__meta">
+                Commercial • Branded Content
               </div>
-            </div>
-          </div>
-          <div class="portfolio-card">
-            <img
-              src="assets/portfolio2-thumb.jpg"
-              alt="Acme Summer Campaign"
-              class="portfolio-card__thumb"
-            />
-            <div class="portfolio-card__body">
-              <div class="portfolio-card__title">Acme Summer Campaign</div>
-              <div class="portfolio-card__meta">Acme • Commercial</div>
               <div class="portfolio-card__desc">
-                Vibrant, energetic ad for Acme's summer launch.
+                Scripted a high-impact commercial for Brand X's national
+                campaign, blending storytelling with marketing objectives for
+                maximum audience engagement.
               </div>
             </div>
           </div>
@@ -101,36 +128,45 @@
         <h2>Pricing & Packages</h2>
         <ul class="pricing-list">
           <li>
-            <strong>Starter:</strong> From $5,000 – 1-day shoot, basic edit, 1
-            location
+            <strong>Short Script:</strong> From $1,500 – Up to 15 pages, 1 round
+            of revisions
           </li>
           <li>
-            <strong>Standard:</strong> From $10,000 – 2-day shoot, advanced
-            edit, 2 locations, casting
+            <strong>Feature Script:</strong> From $5,000 – Up to 120 pages, 2
+            rounds of revisions
           </li>
           <li>
-            <strong>Premium:</strong> Custom – Multi-day, advanced crew, VFX,
-            full campaign
+            <strong>Series Development:</strong> Custom – Pilot, series bible,
+            character arcs, pitch deck
           </li>
         </ul>
         <p class="pricing-note">
-          Contact us for a custom quote tailored to your needs.
+          Contact us for a custom quote tailored to your project.
         </p>
       </section>
       <!-- FAQ -->
       <section class="service-faq">
         <h2>FAQ</h2>
         <details>
-          <summary>How long does a commercial take to produce?</summary>
-          <div>Typical turnaround is 4–8 weeks, depending on scope.</div>
+          <summary>What genres do you specialize in?</summary>
+          <div>
+            We cover drama, comedy, thriller, documentary, branded content, and
+            more.
+          </div>
         </details>
         <details>
-          <summary>Can you handle casting and locations?</summary>
-          <div>Yes, we manage all aspects of pre-production.</div>
+          <summary>Can you help with script rewrites?</summary>
+          <div>
+            Yes, we offer script doctoring and revision services for existing
+            scripts.
+          </div>
         </details>
         <details>
-          <summary>Do you offer media buying or distribution?</summary>
-          <div>We can connect you with trusted partners for distribution.</div>
+          <summary>Do you sign NDAs?</summary>
+          <div>
+            Absolutely. We respect your confidentiality and can sign NDAs upon
+            request.
+          </div>
         </details>
       </section>
       <!-- Get Quote Form -->
@@ -151,9 +187,11 @@
       <section class="service-testimonials">
         <h2>What Our Clients Say</h2>
         <blockquote class="testimonial">
-          "Truss Media delivered a commercial that exceeded our expectations and
-          drove real results!"<br />
-          <span class="testimonial__client">– Marketing Director, Brand X</span>
+          "The script Truss Media developed for us was powerful, original, and
+          production-ready!"<br />
+          <span class="testimonial__client"
+            >– Creative Producer, Vision Films</span
+          >
         </blockquote>
       </section>
       <!-- Other Services Suggestions -->
@@ -167,5 +205,361 @@
         </ul>
       </section>
     </main>
+    <style>
+      html,
+      body {
+        background: linear-gradient(135deg, #181818 0%, #232526 100%);
+        color: #f5f5f5;
+        font-family: "Inter", "Montserrat", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        scroll-behavior: smooth;
+      }
+      .breadcrumb {
+        margin: 0 auto 2rem auto;
+        max-width: 1200px;
+        padding: 1.5rem 2rem 0 2rem;
+      }
+      .breadcrumb-btn {
+        background: #181818;
+        color: #ffd700;
+        border: 2px solid #ffd700;
+        border-radius: 10px;
+        padding: 0.6em 1.5em;
+        font-size: 1.05rem;
+        font-family: inherit;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        margin-bottom: 1.2em;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5em;
+        box-shadow: 0 2px 8px rgba(212, 175, 55, 0.08);
+      }
+      .breadcrumb-btn:hover,
+      .breadcrumb-btn:focus {
+        background: #ffd700;
+        color: #181818;
+        outline: none;
+        box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15);
+      }
+      .service-hero {
+        position: relative;
+        min-height: 48vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 0 0 32px 32px;
+        box-shadow: 0 8px 32px rgba(212, 175, 55, 0.08);
+        margin-bottom: 2.5rem;
+        background: linear-gradient(120deg, #232526 60%, #ffd70022 100%);
+      }
+      .service-hero__media {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        opacity: 0.28;
+        filter: grayscale(0.15) blur(0.5px) brightness(0.9);
+      }
+      .service-hero__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(24, 24, 24, 0.8) 60%,
+          rgba(212, 175, 55, 0.1) 100%
+        );
+        z-index: 1;
+      }
+      .service-hero__content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 3rem 2rem 2rem 2rem;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      .service-hero__content h1 {
+        font-size: 2.9rem;
+        font-weight: 900;
+        letter-spacing: 0.01em;
+        background: linear-gradient(90deg, #ffd700 30%, #f39c12 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 16px #0008;
+      }
+      .service-hero__content p {
+        font-size: 1.3rem;
+        color: #fffbe6;
+        opacity: 0.95;
+        margin-bottom: 0;
+        text-shadow: 0 1px 8px #0006;
+      }
+      .service-main {
+        max-width: 950px;
+        margin: 0 auto 2.5rem auto;
+        padding: 2.5rem 2rem 2rem 2rem;
+        background: rgba(24, 24, 24, 0.97);
+        border-radius: 24px;
+        box-shadow: 0 4px 32px rgba(212, 175, 55, 0.1);
+      }
+      section {
+        margin-bottom: 2.7rem;
+      }
+      h2 {
+        font-size: 2.1rem;
+        font-weight: 800;
+        color: #ffd700;
+        margin-bottom: 1.2rem;
+        letter-spacing: 0.01em;
+        text-align: left;
+        text-shadow: 0 2px 12px #0005;
+      }
+      ul,
+      ol {
+        margin-left: 1.5rem;
+        margin-bottom: 1.2rem;
+      }
+      .service-features li,
+      .pricing-list li {
+        margin-bottom: 0.5rem;
+        font-size: 1.12rem;
+        line-height: 1.7;
+        padding-left: 0.2em;
+      }
+      .portfolio__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+      .custom-portfolio-card {
+        background: linear-gradient(120deg, #232526 80%, #ffd70011 100%);
+        border: 2px solid #ffd70033;
+        border-radius: 18px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.13);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s, box-shadow 0.2s, border 0.2s;
+      }
+      .custom-portfolio-card:hover {
+        transform: translateY(-8px) scale(1.04);
+        box-shadow: 0 8px 32px rgba(212, 175, 55, 0.18);
+        border-color: #ffd700;
+      }
+      .custom-portfolio-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-bottom: 1px solid #222;
+      }
+      .custom-portfolio-card .portfolio-card__body {
+        padding: 1.2rem 1.4rem 1.4rem 1.4rem;
+        color: #fff;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+      .custom-portfolio-card .portfolio-card__title {
+        font-size: 1.22rem;
+        font-weight: 700;
+        color: #ffd700;
+        margin-bottom: 0.3rem;
+        letter-spacing: 0.01em;
+      }
+      .custom-portfolio-card .portfolio-card__meta {
+        font-size: 1.01rem;
+        color: #ffd700;
+        margin-bottom: 0.7rem;
+        opacity: 0.92;
+      }
+      .custom-portfolio-card .portfolio-card__desc {
+        font-size: 1.04rem;
+        color: #eee;
+        opacity: 0.97;
+      }
+      .pricing-list {
+        list-style: disc inside;
+        margin-bottom: 1.2rem;
+      }
+      .pricing-note {
+        color: #ffd700;
+        font-size: 1.08rem;
+        margin-top: 0.5rem;
+      }
+      .contact__form {
+        background: #181818;
+        border-radius: 14px;
+        padding: 1.7rem 1.2rem;
+        box-shadow: 0 2px 12px rgba(212, 175, 55, 0.09);
+        margin-top: 1rem;
+      }
+      .form__group {
+        margin-bottom: 1.1rem;
+      }
+      .form__group label {
+        display: block;
+        color: #ffd700;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+      }
+      .form__group input,
+      .form__group textarea {
+        width: 100%;
+        padding: 0.7em 1em;
+        border: 1.5px solid #ffd70055;
+        border-radius: 7px;
+        background: #232526;
+        color: #fff;
+        font-size: 1rem;
+        font-family: inherit;
+        margin-top: 0.2em;
+        transition: border 0.2s, box-shadow 0.2s;
+        box-shadow: 0 1px 4px #0002;
+      }
+      .form__group input:focus,
+      .form__group textarea:focus {
+        border-color: #ffd700;
+        outline: none;
+        box-shadow: 0 2px 8px #ffd70033;
+      }
+      .btn.btn--primary {
+        background: linear-gradient(90deg, #ffd700 60%, #f39c12 100%);
+        color: #181818;
+        border: none;
+        border-radius: 8px;
+        padding: 0.7em 2em;
+        font-size: 1.13rem;
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(212, 175, 55, 0.13);
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        letter-spacing: 0.01em;
+      }
+      .btn.btn--primary:hover,
+      .btn.btn--primary:focus {
+        background: #ffd700;
+        color: #181818;
+        box-shadow: 0 4px 16px rgba(212, 175, 55, 0.22);
+      }
+      .testimonial {
+        background: #232526;
+        border-left: 4px solid #ffd700;
+        padding: 1.2rem 1.5rem;
+        border-radius: 10px;
+        color: #fffbe6;
+        font-style: italic;
+        margin-bottom: 0.7rem;
+        box-shadow: 0 2px 8px #ffd70011;
+      }
+      .testimonial__client {
+        color: #ffd700;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+      .other-services__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2rem;
+        list-style: none;
+        padding: 0;
+      }
+      .other-services__list li a {
+        color: #ffd700;
+        background: #232526;
+        border-radius: 7px;
+        padding: 0.5em 1.2em;
+        text-decoration: none;
+        font-weight: 700;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        border: 1.5px solid #ffd70033;
+        box-shadow: 0 1px 4px #ffd70011;
+      }
+      .other-services__list li a:hover {
+        background: #ffd700;
+        color: #181818;
+        border-color: #ffd700;
+        box-shadow: 0 2px 8px #ffd70033;
+      }
+      /* Fade-in Animation for Scroll */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeIn 0.8s cubic-bezier(0.4, 1.6, 0.6, 1) forwards;
+        animation-play-state: paused;
+      }
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .stagger-1 {
+        animation-delay: 0.1s;
+      }
+      .stagger-2 {
+        animation-delay: 0.2s;
+      }
+      .stagger-3 {
+        animation-delay: 0.3s;
+      }
+      .stagger-4 {
+        animation-delay: 0.4s;
+      }
+      .stagger-5 {
+        animation-delay: 0.5s;
+      }
+      @media (max-width: 900px) {
+        .service-main {
+          padding: 1rem;
+        }
+      }
+      @media (max-width: 600px) {
+        .service-hero__content h1 {
+          font-size: 2rem;
+        }
+        .service-main {
+          border-radius: 0;
+        }
+        .portfolio__grid {
+          grid-template-columns: 1fr;
+        }
+        .custom-portfolio-card img {
+          height: 140px;
+        }
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.animationPlayState = "running";
+            }
+          });
+        }, observerOptions);
+        document.querySelectorAll(".fade-in").forEach((el) => {
+          el.style.animationPlayState = "paused";
+          observer.observe(el);
+        });
+      });
+    </script>
   </body>
 </html>

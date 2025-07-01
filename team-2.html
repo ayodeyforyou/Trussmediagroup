@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Rahman Jago – Cinematographer at Truss Media Group. Discover his story, achievements, and cinematic vision."
+    />
+    <title>Rahman Jago | Cinematographer – Truss Media Group</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600&display=swap"
+    />
+    <style>
+      /* Unified Premium Team Member Page Styles */
+      body {
+        margin: 0;
+        font-family: "Montserrat", "Poppins", Arial, sans-serif;
+        background: linear-gradient(135deg, #181818 0%, #232323 100%);
+        color: #fff;
+        min-height: 100vh;
+      }
+      .team-hero {
+        position: relative;
+        background: linear-gradient(120deg, #181818 60%, #2d2d2d 100%);
+        padding: 64px 0 32px 0;
+        text-align: center;
+        overflow: hidden;
+      }
+      .team-hero__img {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 4px solid #d4af37;
+        box-shadow: 0 8px 32px #000a;
+        margin-bottom: 24px;
+        background: #222;
+      }
+      .team-hero__name {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #d4af37;
+        margin-bottom: 8px;
+        letter-spacing: 1px;
+      }
+      .team-hero__role {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 12px;
+        opacity: 0.85;
+      }
+      .team-hero__exp {
+        font-size: 1.1rem;
+        color: #d4af37;
+        margin-bottom: 24px;
+        opacity: 0.8;
+      }
+      .team-hero__desc {
+        max-width: 600px;
+        margin: 0 auto 32px auto;
+        font-size: 1.15rem;
+        color: #eee;
+        line-height: 1.7;
+        opacity: 0.95;
+      }
+      .team-achievements {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 32px;
+        margin: 40px 0 32px 0;
+      }
+      .achievement-card {
+        background: linear-gradient(120deg, #232323 60%, #181818 100%);
+        border: 1.5px solid #d4af37;
+        border-radius: 18px;
+        padding: 28px 32px;
+        min-width: 220px;
+        max-width: 320px;
+        box-shadow: 0 4px 24px #0006;
+        color: #fff;
+        text-align: left;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .achievement-card:hover {
+        transform: translateY(-6px) scale(1.03);
+        box-shadow: 0 8px 32px #000a;
+      }
+      .achievement-card__title {
+        color: #d4af37;
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 6px;
+      }
+      .achievement-card__desc {
+        font-size: 1rem;
+        color: #eee;
+        opacity: 0.92;
+      }
+      .team-contact {
+        margin: 40px 0 0 0;
+        text-align: center;
+      }
+      .team-contact__btn {
+        display: inline-block;
+        background: linear-gradient(90deg, #d4af37 0%, #b8860b 100%);
+        color: #181818;
+        font-weight: 700;
+        font-size: 1.1rem;
+        padding: 14px 36px;
+        border: none;
+        border-radius: 32px;
+        box-shadow: 0 2px 12px #0005;
+        cursor: pointer;
+        text-decoration: none;
+        margin-bottom: 18px;
+        transition: background 0.2s, color 0.2s, transform 0.2s;
+      }
+      .team-contact__btn:hover {
+        background: linear-gradient(90deg, #b8860b 0%, #d4af37 100%);
+        color: #fff;
+        transform: translateY(-2px) scale(1.04);
+      }
+      .team-contact__socials {
+        margin-top: 12px;
+        display: flex;
+        justify-content: center;
+        gap: 18px;
+      }
+      .team-contact__social-link {
+        color: #d4af37;
+        font-size: 1.7rem;
+        transition: color 0.2s;
+      }
+      .team-contact__social-link:hover {
+        color: #fff;
+      }
+      @media (max-width: 600px) {
+        .team-hero__img {
+          width: 120px;
+          height: 120px;
+        }
+        .team-hero__name {
+          font-size: 2rem;
+        }
+        .team-achievements {
+          flex-direction: column;
+          gap: 18px;
+        }
+        .achievement-card {
+          min-width: 0;
+          max-width: 100%;
+          padding: 18px 14px;
+        }
+      }
+      /* Scroll Animation */
+      .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+          transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .reveal-on-scroll.visible {
+        opacity: 1;
+        transform: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="team-hero reveal-on-scroll">
+        <img
+          src="black-man-posing.jpg"
+          alt="Rahman Jago, Cinematographer"
+          class="team-hero__img reveal-on-scroll"
+          loading="lazy"
+          width="180"
+          height="180"
+        />
+        <div class="team-hero__name reveal-on-scroll" id="asakeboys">
+          Rahman Jago
+        </div>
+        <div class="team-hero__role reveal-on-scroll">Cinematographer</div>
+        <div class="team-hero__exp reveal-on-scroll">10 yrs experience</div>
+        <div class="team-hero__desc reveal-on-scroll">
+          Rahman Jago is the visual architect behind some of Truss Media Group’s
+          most acclaimed productions. With a decade of experience in cinematic
+          storytelling, Rahman’s lens captures emotion, movement, and meaning in
+          every frame. His signature style blends bold composition with a keen
+          sense for narrative, elevating commercial, documentary, and creative
+          projects alike. Rahman’s work has been recognized for its technical
+          mastery and artistic vision, inspiring both audiences and fellow
+          filmmakers.
+        </div>
+      </section>
+      <section class="team-achievements">
+        <div class="achievement-card reveal-on-scroll">
+          <div class="achievement-card__title">
+            Award-Winning Cinematography
+          </div>
+          <div class="achievement-card__desc">
+            Recipient of the 2023 Lagos Film Festival Best Cinematography Award
+            for "The Journey".
+          </div>
+        </div>
+        <div class="achievement-card reveal-on-scroll">
+          <div class="achievement-card__title">Global Brand Collaborations</div>
+          <div class="achievement-card__desc">
+            Worked with leading brands including Brand X, Acme Corp, and
+            Discovery Africa on high-impact campaigns.
+          </div>
+        </div>
+        <div class="achievement-card reveal-on-scroll">
+          <div class="achievement-card__title">Mentor & Educator</div>
+          <div class="achievement-card__desc">
+            Leads workshops and mentors emerging filmmakers in the art of visual
+            storytelling.
+          </div>
+        </div>
+      </section>
+      <section class="team-contact reveal-on-scroll">
+        <a href="mailto:info@trussmediagroup.com" class="team-contact__btn"
+          >Contact Rahman</a
+        >
+        <div class="team-contact__socials">
+          <a
+            href="#"
+            class="team-contact__social-link"
+            aria-label="Instagram"
+            title="Instagram"
+          >
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#d4af37"
+              stroke-width="1.5"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="5" fill="#181818" />
+              <circle cx="12" cy="12" r="5" stroke="#d4af37" />
+              <circle cx="17.5" cy="6.5" r="1.2" fill="#d4af37" />
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="team-contact__social-link"
+            aria-label="YouTube"
+            title="YouTube"
+          >
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#d4af37"
+              stroke-width="1.5"
+            >
+              <rect x="3" y="7" width="18" height="10" rx="4" fill="#181818" />
+              <polygon points="10,9 16,12 10,15" fill="#d4af37" />
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="team-contact__social-link"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#d4af37"
+              stroke-width="1.5"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="4" fill="#181818" />
+              <rect x="7" y="10" width="2" height="6" fill="#d4af37" />
+              <rect x="12" y="10" width="2" height="6" fill="#d4af37" />
+              <rect x="7" y="7" width="2" height="2" fill="#d4af37" />
+            </svg>
+          </a>
+        </div>
+      </section>
+    </main>
+    <script>
+      // Scroll-triggered fade-in animation (Intersection Observer)
+      (function () {
+        const revealEls = document.querySelectorAll(".reveal-on-scroll");
+        const observer = new window.IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+        revealEls.forEach((el) => observer.observe(el));
+      })();
+    </script>
+  </body>
+</html>

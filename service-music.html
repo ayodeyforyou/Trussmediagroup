@@ -3,30 +3,374 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Music Videos | Truss Media Group</title>
+    <title>
+      Talent Development, Content Strategy, and IP Development | Truss Media
+      Group
+    </title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      html,
+      body {
+        background: linear-gradient(135deg, #181818 0%, #232526 100%);
+        color: #f5f5f5;
+        font-family: "Inter", "Montserrat", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        scroll-behavior: smooth;
+      }
+      .breadcrumb {
+        margin: 0 auto 2rem auto;
+        max-width: 1200px;
+        padding: 1.5rem 2rem 0 2rem;
+      }
+      .breadcrumb-btn {
+        background: #181818;
+        color: #ffd700;
+        border: 2px solid #ffd700;
+        border-radius: 10px;
+        padding: 0.6em 1.5em;
+        font-size: 1.05rem;
+        font-family: inherit;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        margin-bottom: 1.2em;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5em;
+        box-shadow: 0 2px 8px rgba(212, 175, 55, 0.08);
+      }
+      .breadcrumb-btn:hover,
+      .breadcrumb-btn:focus {
+        background: #ffd700;
+        color: #181818;
+        outline: none;
+        box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15);
+      }
+      .service-hero {
+        position: relative;
+        min-height: 48vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 0 0 32px 32px;
+        box-shadow: 0 8px 32px rgba(212, 175, 55, 0.08);
+        margin-bottom: 2.5rem;
+        background: linear-gradient(120deg, #232526 60%, #ffd70022 100%);
+      }
+      .service-hero__media {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        opacity: 0.28;
+        filter: grayscale(0.15) blur(0.5px) brightness(0.9);
+      }
+      .service-hero__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(24, 24, 24, 0.8) 60%,
+          rgba(212, 175, 55, 0.1) 100%
+        );
+        z-index: 1;
+      }
+      .service-hero__content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 3rem 2rem 2rem 2rem;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      .service-hero__content h1 {
+        font-size: 2.9rem;
+        font-weight: 900;
+        letter-spacing: 0.01em;
+        background: linear-gradient(90deg, #ffd700 30%, #f39c12 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 16px #0008;
+      }
+      .service-hero__content p {
+        font-size: 1.3rem;
+        color: #fffbe6;
+        opacity: 0.95;
+        margin-bottom: 0;
+        text-shadow: 0 1px 8px #0006;
+      }
+      .service-main {
+        max-width: 950px;
+        margin: 0 auto 2.5rem auto;
+        padding: 2.5rem 2rem 2rem 2rem;
+        background: rgba(24, 24, 24, 0.97);
+        border-radius: 24px;
+        box-shadow: 0 4px 32px rgba(212, 175, 55, 0.1);
+      }
+      section {
+        margin-bottom: 2.7rem;
+      }
+      h2 {
+        font-size: 2.1rem;
+        font-weight: 800;
+        color: #ffd700;
+        margin-bottom: 1.2rem;
+        letter-spacing: 0.01em;
+        text-align: left;
+        text-shadow: 0 2px 12px #0005;
+      }
+      ul,
+      ol {
+        margin-left: 1.5rem;
+        margin-bottom: 1.2rem;
+      }
+      .service-features li,
+      .pricing-list li {
+        margin-bottom: 0.5rem;
+        font-size: 1.12rem;
+        line-height: 1.7;
+        padding-left: 0.2em;
+      }
+      .portfolio__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+      .custom-portfolio-card {
+        background: linear-gradient(120deg, #232526 80%, #ffd70011 100%);
+        border: 2px solid #ffd70033;
+        border-radius: 18px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.13);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s, box-shadow 0.2s, border 0.2s;
+      }
+      .custom-portfolio-card:hover {
+        transform: translateY(-8px) scale(1.04);
+        box-shadow: 0 8px 32px rgba(212, 175, 55, 0.18);
+        border-color: #ffd700;
+      }
+      .custom-portfolio-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-bottom: 1px solid #222;
+      }
+      .custom-portfolio-card .portfolio-card__body {
+        padding: 1.2rem 1.4rem 1.4rem 1.4rem;
+        color: #fff;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+      .custom-portfolio-card .portfolio-card__title {
+        font-size: 1.22rem;
+        font-weight: 700;
+        color: #ffd700;
+        margin-bottom: 0.3rem;
+        letter-spacing: 0.01em;
+      }
+      .custom-portfolio-card .portfolio-card__meta {
+        font-size: 1.01rem;
+        color: #ffd700;
+        margin-bottom: 0.7rem;
+        opacity: 0.92;
+      }
+      .custom-portfolio-card .portfolio-card__desc {
+        font-size: 1.04rem;
+        color: #eee;
+        opacity: 0.97;
+      }
+      .pricing-list {
+        list-style: disc inside;
+        margin-bottom: 1.2rem;
+      }
+      .pricing-note {
+        color: #ffd700;
+        font-size: 1.08rem;
+        margin-top: 0.5rem;
+      }
+      .contact__form {
+        background: #181818;
+        border-radius: 14px;
+        padding: 1.7rem 1.2rem;
+        box-shadow: 0 2px 12px rgba(212, 175, 55, 0.09);
+        margin-top: 1rem;
+      }
+      .form__group {
+        margin-bottom: 1.1rem;
+      }
+      .form__group label {
+        display: block;
+        color: #ffd700;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+      }
+      .form__group input,
+      .form__group textarea {
+        width: 100%;
+        padding: 0.7em 1em;
+        border: 1.5px solid #ffd70055;
+        border-radius: 7px;
+        background: #232526;
+        color: #fff;
+        font-size: 1rem;
+        font-family: inherit;
+        margin-top: 0.2em;
+        transition: border 0.2s, box-shadow 0.2s;
+        box-shadow: 0 1px 4px #0002;
+      }
+      .form__group input:focus,
+      .form__group textarea:focus {
+        border-color: #ffd700;
+        outline: none;
+        box-shadow: 0 2px 8px #ffd70033;
+      }
+      .btn.btn--primary {
+        background: linear-gradient(90deg, #ffd700 60%, #f39c12 100%);
+        color: #181818;
+        border: none;
+        border-radius: 8px;
+        padding: 0.7em 2em;
+        font-size: 1.13rem;
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(212, 175, 55, 0.13);
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        letter-spacing: 0.01em;
+      }
+      .btn.btn--primary:hover,
+      .btn.btn--primary:focus {
+        background: #ffd700;
+        color: #181818;
+        box-shadow: 0 4px 16px rgba(212, 175, 55, 0.22);
+      }
+      .testimonial {
+        background: #232526;
+        border-left: 4px solid #ffd700;
+        padding: 1.2rem 1.5rem;
+        border-radius: 10px;
+        color: #fffbe6;
+        font-style: italic;
+        margin-bottom: 0.7rem;
+        box-shadow: 0 2px 8px #ffd70011;
+      }
+      .testimonial__client {
+        color: #ffd700;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+      .other-services__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2rem;
+        list-style: none;
+        padding: 0;
+      }
+      .other-services__list li a {
+        color: #ffd700;
+        background: #232526;
+        border-radius: 7px;
+        padding: 0.5em 1.2em;
+        text-decoration: none;
+        font-weight: 700;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        border: 1.5px solid #ffd70033;
+        box-shadow: 0 1px 4px #ffd70011;
+      }
+      .other-services__list li a:hover {
+        background: #ffd700;
+        color: #181818;
+        border-color: #ffd700;
+        box-shadow: 0 2px 8px #ffd70033;
+      }
+      /* Fade-in Animation for Scroll */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeIn 0.8s cubic-bezier(0.4, 1.6, 0.6, 1) forwards;
+        animation-play-state: paused;
+      }
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .stagger-1 {
+        animation-delay: 0.1s;
+      }
+      .stagger-2 {
+        animation-delay: 0.2s;
+      }
+      .stagger-3 {
+        animation-delay: 0.3s;
+      }
+      .stagger-4 {
+        animation-delay: 0.4s;
+      }
+      .stagger-5 {
+        animation-delay: 0.5s;
+      }
+      @media (max-width: 900px) {
+        .service-main {
+          padding: 1rem;
+        }
+      }
+      @media (max-width: 600px) {
+        .service-hero__content h1 {
+          font-size: 2rem;
+        }
+        .service-main {
+          border-radius: 0;
+        }
+        .portfolio__grid {
+          grid-template-columns: 1fr;
+        }
+        .custom-portfolio-card img {
+          height: 140px;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Breadcrumb Navigation -->
-    <nav class="breadcrumb">
-      <a href="index.html">Home</a> &gt; <a href="#services">Services</a> &gt;
-      Music Videos
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <button
+        onclick="window.location.href='index.html'"
+        class="breadcrumb-btn"
+      >
+        <span>← Back to Home</span>
+      </button>
     </nav>
     <!-- Hero Section -->
     <header class="service-hero">
-      <video
+      <img
         class="service-hero__media"
-        src="assets/music-hero.mp4"
-        poster="assets/music-hero.jpg"
-        autoplay
-        muted
-        loop
-        playsinline
-      ></video>
+        src="assets/talent-hero.jpg"
+        alt="Talent Development, Content Strategy, and IP Development"
+        style="width: 100%; height: auto; object-fit: cover"
+      />
       <div class="service-hero__overlay"></div>
       <div class="service-hero__content">
-        <h1>Music Videos</h1>
-        <p>Creative music videos for artists and labels.</p>
+        <h1>Talent Development, Content Strategy & IP Development</h1>
+        <p>
+          Empowering creators and brands to grow, innovate, and own their
+          stories.
+        </p>
       </div>
     </header>
     <main class="service-main">
@@ -34,16 +378,17 @@
       <section class="service-overview">
         <h2>What We Deliver</h2>
         <p>
-          We produce visually stunning music videos that amplify your sound and
-          vision. Our team collaborates with artists to create unique, memorable
-          visuals that stand out in today's music landscape.
+          We nurture creative talent, develop winning content strategies, and
+          help you build, protect, and monetize your intellectual property. Our
+          team works with artists, brands, and startups to unlock new
+          opportunities and maximize creative potential.
         </p>
         <ul class="service-features">
-          <li>Concept development & storyboarding</li>
-          <li>Performance & narrative filming</li>
-          <li>Special effects & creative editing</li>
-          <li>Location scouting & set design</li>
-          <li>Delivery for broadcast & online</li>
+          <li>Talent discovery & coaching</li>
+          <li>Content strategy & planning</li>
+          <li>IP development & protection</li>
+          <li>Brand & audience growth</li>
+          <li>Monetization & partnership guidance</li>
         </ul>
       </section>
       <!-- Our Process -->
@@ -51,12 +396,16 @@
         <h2>Our Process</h2>
         <ol>
           <li>
-            <strong>Pre-Production:</strong> Creative, planning, casting,
-            locations
+            <strong>Discovery:</strong> Identify talent, assess goals, and map
+            opportunities
           </li>
-          <li><strong>Production:</strong> Filming, direction, choreography</li>
           <li>
-            <strong>Post-Production:</strong> Editing, VFX, color, delivery
+            <strong>Development:</strong> Coaching, content planning, and IP
+            creation
+          </li>
+          <li>
+            <strong>Launch & Growth:</strong> Go-to-market, audience building,
+            and monetization
           </li>
         </ol>
       </section>
@@ -64,17 +413,48 @@
       <section class="service-portfolio">
         <h2>Portfolio Examples</h2>
         <div class="portfolio__grid">
-          <div class="portfolio-card">
+          <div class="portfolio-card custom-portfolio-card">
             <img
-              src="assets/portfolio6-thumb.jpg"
-              alt="Artist Y Music Video"
+              src="assets/portfolio-talent1.jpg"
+              alt="Emerging Artist Development"
               class="portfolio-card__thumb"
             />
             <div class="portfolio-card__body">
-              <div class="portfolio-card__title">Artist Y - "Shine"</div>
-              <div class="portfolio-card__meta">Artist Y • Music Video</div>
+              <div class="portfolio-card__title">Emerging Artist Program</div>
+              <div class="portfolio-card__meta">Talent Development • Music</div>
               <div class="portfolio-card__desc">
-                A vibrant, energetic music video for Artist Y's latest single.
+                Discovered and coached new music talent, resulting in a
+                successful debut and growing fanbase.
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-card custom-portfolio-card">
+            <img
+              src="assets/portfolio-talent2.jpg"
+              alt="Brand Content Strategy"
+              class="portfolio-card__thumb"
+            />
+            <div class="portfolio-card__body">
+              <div class="portfolio-card__title">Brand Content Strategy</div>
+              <div class="portfolio-card__meta">Content Strategy • Brand</div>
+              <div class="portfolio-card__desc">
+                Developed a content roadmap and IP plan for a lifestyle brand,
+                leading to increased engagement and new revenue streams.
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-card custom-portfolio-card">
+            <img
+              src="assets/portfolio-talent3.jpg"
+              alt="IP Development for Creator"
+              class="portfolio-card__thumb"
+            />
+            <div class="portfolio-card__body">
+              <div class="portfolio-card__title">Creator IP Launch</div>
+              <div class="portfolio-card__meta">IP Development • Digital</div>
+              <div class="portfolio-card__desc">
+                Guided a digital creator through the process of developing,
+                protecting, and monetizing original IP.
               </div>
             </div>
           </div>
@@ -85,35 +465,45 @@
         <h2>Pricing & Packages</h2>
         <ul class="pricing-list">
           <li>
-            <strong>Indie:</strong> From $4,000 – 1-day shoot, basic edit, 1
-            location
+            <strong>Talent Coaching:</strong> From $1,000 – 3 sessions,
+            personalized plan
           </li>
           <li>
-            <strong>Label:</strong> From $8,000 – 2-day shoot, advanced edit,
-            multiple locations
+            <strong>Content/IP Strategy:</strong> From $3,000 – Content roadmap,
+            IP audit, growth plan
           </li>
           <li>
-            <strong>Custom:</strong> Contact us for high-concept or large-scale
-            projects
+            <strong>Full Development:</strong> Custom – Ongoing support, launch,
+            and monetization
           </li>
         </ul>
         <p class="pricing-note">
-          Contact us for a custom quote tailored to your music and vision.
+          Contact us for a custom quote tailored to your creative journey.
         </p>
       </section>
       <!-- FAQ -->
       <section class="service-faq">
         <h2>FAQ</h2>
         <details>
-          <summary>Can you help with creative direction?</summary>
+          <summary>Do you work with new and established talent?</summary>
           <div>
-            Yes, we collaborate closely with artists on creative direction and
-            storyboarding.
+            Yes, we support both emerging and established creators, brands, and
+            teams.
           </div>
         </details>
         <details>
-          <summary>Do you handle casting and locations?</summary>
-          <div>We manage all aspects of casting and location scouting.</div>
+          <summary>Can you help protect my intellectual property?</summary>
+          <div>
+            Absolutely. We guide you through IP development, protection, and
+            monetization.
+          </div>
+        </details>
+        <details>
+          <summary>Do you offer content strategy for brands?</summary>
+          <div>
+            Yes, we create and implement content strategies for brands,
+            startups, and creators.
+          </div>
         </details>
       </section>
       <!-- Get Quote Form -->
@@ -134,21 +524,48 @@
       <section class="service-testimonials">
         <h2>What Our Clients Say</h2>
         <blockquote class="testimonial">
-          "The music video Truss Media created for us was visually stunning and
-          perfectly matched our sound."
-          <br /><span class="testimonial__client">– Artist Y</span>
+          "Truss Media's talent and IP development support helped me launch my
+          brand and grow my audience!"<br />
+          <span class="testimonial__client">– Digital Creator</span>
         </blockquote>
       </section>
       <!-- Other Services Suggestions -->
       <section class="other-services">
         <h2>Other Services</h2>
         <ul class="other-services__list">
-          <li><a href="service-commercial.html">Commercial Production</a></li>
-          <li><a href="service-documentary.html">Documentary</a></li>
-          <li><a href="service-corporate.html">Corporate Videos</a></li>
+          <li>
+            <a href="service-screen-writing.html"
+              >Script Writing & Screen Development</a
+            >
+          </li>
+          <li>
+            <a href="service-documentary.html"
+              >Film/TV Production & Directing</a
+            >
+          </li>
+          <li><a href="service-corporate.html">Creative Consulting</a></li>
           <li><a href="service-post.html">Post-Production</a></li>
         </ul>
       </section>
     </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.animationPlayState = "running";
+            }
+          });
+        }, observerOptions);
+        document.querySelectorAll(".fade-in").forEach((el) => {
+          el.style.animationPlayState = "paused";
+          observer.observe(el);
+        });
+      });
+    </script>
   </body>
 </html>
