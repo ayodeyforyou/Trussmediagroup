@@ -98,7 +98,7 @@ body {
 }
 
 body.light-mode .hero {
-  background-image: url("02.png");
+  background-image: url("02.webp");
 }
 
 .hero__bg {
@@ -384,11 +384,12 @@ body.light-mode .hero {
   }
 }
 
+/*background: var(--color-section-bg)*/
+
 /* ABOUT SECTION */
 .about {
-  background: var(--color-section-bg);
-  padding: 5rem 0 4rem 0;
 }
+
 .about__container {
   display: flex;
   gap: 3rem;
@@ -431,7 +432,7 @@ body.light-mode .hero {
   flex-wrap: wrap;
 }
 .stat-box {
-  background: var(--color-section-bg);
+  background: var(--color-bg);
   border-radius: var(--radius);
   padding: 1.2rem 1.5rem;
   text-align: center;

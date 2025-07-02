@@ -188,8 +188,35 @@
     </section>
 
     <!-- ABOUT US SECTION -->
-    <section id="about" class="about reveal-on-scroll">
-      <div class="about__container">
+    <section
+      id="about"
+      class="about reveal-on-scroll"
+      style="
+        position: relative;
+        background: url('03.webp') center center/cover no-repeat;
+      "
+    >
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.68);
+          z-index: 0;
+        "
+      ></div>
+      <div
+        class="about__container"
+        style="
+          position: relative;
+          z-index: 1;
+          background: none;
+          box-shadow: none;
+          border-radius: 0;
+          padding: 2.5rem;
+          margin: 2rem auto;
+          max-width: 1200px;
+        "
+      >
         <div class="about__img-col reveal-on-scroll">
           <img
             src="lo.jpg"
@@ -497,7 +524,7 @@
             aria-label="View profile for Rahman Jago"
           >
             <img
-              src="black-man-posing.jpg"
+              src="black-man-posing.webp"
               alt="Rahman Jago, Cinematographer"
               class="team-card__img reveal-on-scroll"
               loading="lazy"
@@ -587,7 +614,7 @@
         <div class="blog__grid">
           <article class="blog__card reveal-on-scroll">
             <img
-              src="man-filming-with-professional-camera-new-movie.jpg"
+              src="man-filming-with-professional-camera-new-movie.webp"
               alt="Blog 1: Building a culturally relevant ip"
               class="blog__img reveal-on-scroll"
               loading="lazy"
@@ -710,8 +737,23 @@
     </script>
 
     <!-- CONTACT SECTION -->
-    <section id="contact" class="contact">
-      <div class="contact__container">
+    <section
+      id="contact"
+      class="contact"
+      style="
+        position: relative;
+        background: url('sign mockup.webp') center center/cover no-repeat;
+      "
+    >
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.68);
+          z-index: 0;
+        "
+      ></div>
+      <div class="contact__container" style="position: relative; z-index: 1">
         <div class="contact__form-col">
           <form
             id="contactForm"
@@ -963,6 +1005,8 @@
       <div class="footer__container">
         <div class="footer__brand-col">
           <div class="footer__logo" aria-label="Truss Media Group logo">
+           
+            </div>
             <svg
               width="40"
               height="40"
@@ -1125,8 +1169,9 @@
                   stroke-width="1.5"
                   fill="none"
                 />
-                <path d="M16 16l2 2" stroke="#d4af37" stroke-width="1.5" /></svg
-            ></a>
+                <path d="M16 16l2 2" stroke="#d4af37" stroke-width="1.5" />
+              </svg>
+            </a>
           </div>
         </div>
       </div>
