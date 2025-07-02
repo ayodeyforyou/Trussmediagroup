@@ -8,10 +8,6 @@
       content="Truss Media Group - Cinematic film production for brands that demand excellence. Portfolio, services, and contact."
     />
     <title>Truss Media Group | Cinematic Storytelling</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600&display=swap"
-    />
     <link rel="stylesheet" href="style.css" />
     <!-- Google Analytics -->
     <script
@@ -558,8 +554,25 @@
     </section>
 
     <!-- TESTIMONIALS SECTION -->
-    <section class="testimonials reveal-on-scroll">
-      <div class="testimonials__container">
+    <section
+      class="testimonials reveal-on-scroll"
+      style="
+        position: relative;
+        background: url('sign mockup 2.webp') center center/cover no-repeat;
+      "
+    >
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.68);
+          z-index: 0;
+        "
+      ></div>
+      <div
+        class="testimonials__container"
+        style="position: relative; z-index: 1"
+      >
         <h2 class="testimonials__title reveal-on-scroll">
           What Our Clients Say
         </h2>
@@ -1159,5 +1172,6 @@
         </div>
       </div>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>

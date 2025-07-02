@@ -513,6 +513,43 @@ body.light-mode .hero {
   color: var(--color-text);
 }
 
+/* Replicate testimonial card mobile styling for service cards */
+@media (max-width: 600px) {
+  .services__grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    align-items: center !important;
+  }
+  .service-card {
+    width: 100% !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
+    border-radius: 1.2rem !important;
+    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.12) !important;
+    background: #181818 !important;
+    padding: 1.5rem 1.2rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    transition: box-shadow 0.2s;
+  }
+  .service-card__icon {
+    margin-bottom: 1rem !important;
+  }
+  .service-card__title {
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .service-card__desc {
+    font-size: 1rem !important;
+    color: #ccc !important;
+    margin-bottom: 0.5rem !important;
+  }
+}
+
 /* TEAM SECTION */
 .team {
   background: var(--color-bg);
@@ -1496,4 +1533,29 @@ body.light-mode .hero {
 /* Global Utility for preventing scroll when mobile menu is open */
 body.no-scroll {
   overflow: hidden;
+}
+
+/* Use Ubuntu as the primary font for the website */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+
+body,
+html {
+  font-family: "Ubuntu", Arial, Helvetica, sans-serif !important;
+}
+
+/* Optionally, override headings and nav for consistency */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.nav__link,
+.btn,
+.footer__nav-link,
+.footer__desc,
+input,
+textarea,
+button {
+  font-family: "Ubuntu", Arial, Helvetica, sans-serif !important;
 }
