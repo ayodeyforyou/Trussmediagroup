@@ -1,3 +1,6 @@
+/* Import Ubuntu font at the very top for priority */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+
 html {
   scroll-behavior: smooth;
 }
@@ -26,7 +29,7 @@ body {
   --accent: #d4af37;
   --radius: 14px;
   --transition: 0.3s;
-  --font-main: "Montserrat", "Poppins", Arial, sans-serif;
+  --font-main: "Ubuntu", Arial, Helvetica, sans-serif;
 
   --color-bg: #181818;
   --color-text: #fff;
@@ -911,11 +914,10 @@ body.light-mode .hero {
 
 /* FOOTER SECTION */
 .footer {
-  background: #181818;
-  color: #fff;
+  background: var(--color-footer-bg);
+  color: var(--color-footer-text);
   padding: 3rem 0 1.5rem 0;
-  font-family: "Montserrat", "Poppins", Arial, sans-serif;
-  border-top: 1px solid #232323;
+  border-top: 1px solid var(--color-section-bg);
   box-shadow: 0 -2px 24px rgba(0, 0, 0, 0.18);
 }
 .footer__container {
@@ -936,7 +938,7 @@ body.light-mode .hero {
   margin-bottom: 1rem;
 }
 .footer__desc {
-  color: #d4af37;
+  color: var(--color-accent);
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
 }
@@ -951,7 +953,7 @@ body.light-mode .hero {
   margin: 0;
 }
 .footer__nav-link {
-  color: #fff;
+  color: var(--color-footer-text);
   text-decoration: none;
   font-weight: 600;
   display: block;
@@ -959,7 +961,7 @@ body.light-mode .hero {
   transition: color 0.2s;
 }
 .footer__nav-link:hover {
-  color: #d4af37;
+  color: var(--color-accent);
 }
 .footer__contact-col {
   flex: 1 1 220px;
@@ -968,7 +970,7 @@ body.light-mode .hero {
 }
 .footer__contact-title {
   font-weight: 700;
-  color: #d4af37;
+  color: var(--color-accent);
   margin-bottom: 1rem;
   font-size: 1.15rem;
 }
@@ -976,11 +978,11 @@ body.light-mode .hero {
   list-style: none;
   padding: 0;
   margin: 0 0 1.2rem 0;
-  color: #fff;
+  color: var(--color-footer-text);
   font-size: 1rem;
 }
 .footer__contact-label {
-  color: #d4af37;
+  color: var(--color-accent);
   font-weight: 600;
   margin-right: 0.5em;
 }
@@ -993,7 +995,7 @@ body.light-mode .hero {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #232323;
+  background: var(--color-section-bg);
   border-radius: 50%;
   width: 38px;
   height: 38px;
@@ -1001,322 +1003,19 @@ body.light-mode .hero {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 .footer__social-link:hover {
-  background: #d4af37;
+  background: var(--color-accent);
   box-shadow: 0 4px 16px rgba(212, 175, 55, 0.18);
 }
 .footer__social-link svg {
   display: block;
   width: 20px;
   height: 20px;
-  stroke: #d4af37;
+  stroke: var(--color-accent);
   fill: none;
 }
 .footer__social-link:hover svg {
-  stroke: #181818;
-  fill: #fff;
-}
-@media (max-width: 900px) {
-  .footer__container {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 2rem;
-  }
-}
-@media (max-width: 600px) {
-  .footer {
-    padding: 2rem 0 1rem 0;
-  }
-  .footer__container {
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    gap: 2rem !important;
-  }
-  .footer__brand-col,
-  .footer__nav-col,
-  .footer__contact-col {
-    align-items: center !important;
-    text-align: center !important;
-    width: 100% !important;
-    justify-content: center !important;
-    margin: 0 auto !important;
-  }
-  .footer__logo img {
-    margin: 0 auto !important;
-    display: block !important;
-  }
-  .footer__nav-list {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 0.5rem !important;
-    padding: 0 !important;
-  }
-  .footer__contact-list {
-    align-items: center !important;
-    text-align: center !important;
-    padding: 0 !important;
-  }
-  .footer__socials {
-    justify-content: center !important;
-    margin: 1rem 0 0 0 !important;
-  }
-}
-
-/* Replace hardcoded backgrounds and text colors to use CSS variables for full dark/light mode support */
-
-/* Example replacements throughout the file: */
-/* background: #232323; => background: var(--color-section-bg); */
-/* background: #181818; => background: var(--color-bg); */
-/* background: #fff; => background: var(--color-nav-bg); */
-/* color: #fff; => color: var(--color-text); */
-/* color: #181818; => color: var(--color-nav-text); */
-/* color: #d4af37; => color: var(--color-accent); */
-
-/* --- Below are the main replacements applied --- */
-
-.hero {
-  background: var(--color-bg);
-}
-.hero__logo {
-  color: var(--color-accent);
-}
-.nav__link {
-  color: var(--color-text);
-}
-.nav__link.active,
-.nav__link:hover {
-  color: var(--color-accent);
-}
-
-.carousel-section {
-  background: var(--color-bg);
-}
-.carousel__item {
-  background: var(--color-section-bg);
-}
-.carousel__caption {
-  background: var(--color-section-bg);
-  color: var(--color-accent);
-}
-
-.about {
-  background: var(--color-section-bg);
-}
-.stat-box {
-  background: var(--color-section-bg);
-}
-.stat-box__num {
-  color: var(--color-accent);
-}
-.stat-box__label {
-  color: var(--gray);
-}
-
-.services {
-  background: var(--color-section-bg);
-}
-.service-card {
-  background: var(--color-section-bg);
-  color: var(--color-text);
-  border-color: var(--color-section-bg);
-}
-.service-card:hover,
-.service-card:focus {
-  background: var(--color-bg);
-  border-color: var(--color-accent);
-}
-.service-card__title {
-  color: var(--color-accent);
-}
-.service-card__desc {
-  color: var(--color-text);
-}
-
-.team {
-  background: var(--color-bg);
-}
-.team-card {
-  background: var(--color-section-bg);
-  color: var(--color-text);
-  border-color: var(--color-section-bg);
-}
-.team-card:hover,
-.team-card:focus {
-  background: var(--color-bg);
-  border-color: var(--color-accent);
-}
-.team-card__name {
-  color: var(--color-accent);
-}
-.team-card__role {
-  color: var(--color-text);
-}
-.team-card__exp {
-  color: #bbb;
-}
-
-.testimonials {
-  background: var(--color-bg);
-}
-.testimonial-card {
-  background: var(--color-section-bg);
-  color: var(--color-text);
-  border-color: var(--color-section-bg);
-}
-.testimonial-card:hover,
-.testimonial-card:focus {
-  background: var(--color-bg);
-  border-color: var(--color-accent);
-}
-.testimonial-card__quote {
-  color: var(--color-accent);
-}
-.testimonial-card__client {
-  color: var(--gray);
-}
-
-.blog {
-  background: var(--color-section-bg);
-}
-.blog__card {
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-.blog__card-title {
-  color: var(--color-accent);
-}
-.blog__meta {
-  color: var(--gray);
-}
-.blog__excerpt {
-  color: var(--color-text);
-}
-
-.contact {
-  background: var(--color-section-bg);
-}
-.contact__form {
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-.contact__info-block {
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-.contact__info-block h3 {
-  color: var(--color-accent);
-}
-.contact__info-block a {
-  color: var(--color-accent);
-}
-.contact__info-block a:hover {
-  color: var(--color-accent);
-}
-
-.footer {
-  background: #181818;
-  color: #fff;
-  padding: 3rem 0 1.5rem 0;
-  font-family: "Montserrat", "Poppins", Arial, sans-serif;
-  border-top: 1px solid #232323;
-  box-shadow: 0 -2px 24px rgba(0, 0, 0, 0.18);
-}
-.footer__container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  max-width: 1200px;
-  margin: 0 auto;
-  gap: 2.5rem;
-}
-.footer__brand-col {
-  flex: 1 1 220px;
-  min-width: 220px;
-  margin-bottom: 1.5rem;
-}
-.footer__logo {
-  margin-bottom: 1rem;
-}
-.footer__desc {
-  color: #d4af37;
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-}
-.footer__nav-col {
-  flex: 1 1 180px;
-  min-width: 180px;
-  margin-bottom: 1.5rem;
-}
-.footer__nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.footer__nav-link {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  display: block;
-  margin-bottom: 0.7rem;
-  transition: color 0.2s;
-}
-.footer__nav-link:hover {
-  color: #d4af37;
-}
-.footer__contact-col {
-  flex: 1 1 220px;
-  min-width: 220px;
-  margin-bottom: 1.5rem;
-}
-.footer__contact-title {
-  font-weight: 700;
-  color: #d4af37;
-  margin-bottom: 1rem;
-  font-size: 1.15rem;
-}
-.footer__contact-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1.2rem 0;
-  color: #fff;
-  font-size: 1rem;
-}
-.footer__contact-label {
-  color: #d4af37;
-  font-weight: 600;
-  margin-right: 0.5em;
-}
-.footer__socials {
-  display: flex;
-  gap: 1.1rem;
-  margin-top: 0.5rem;
-}
-.footer__social-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #232323;
-  border-radius: 50%;
-  width: 38px;
-  height: 38px;
-  transition: background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-}
-.footer__social-link:hover {
-  background: #d4af37;
-  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.18);
-}
-.footer__social-link svg {
-  display: block;
-  width: 20px;
-  height: 20px;
-  stroke: #d4af37;
-  fill: none;
-}
-.footer__social-link:hover svg {
-  stroke: #181818;
-  fill: #fff;
+  stroke: var(--color-footer-bg);
+  fill: var(--color-footer-text);
 }
 @media (max-width: 900px) {
   .footer__container {
@@ -1538,9 +1237,20 @@ body.no-scroll {
 /* Use Ubuntu as the primary font for the website */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
 
-body,
-html {
-  font-family: "Ubuntu", Arial, Helvetica, sans-serif !important;
+:root {
+  --font-main: "Ubuntu", Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+  font-family: var(--font-main) !important;
+}
+
+/* Apply Ubuntu font to all major containers and override any hardcoded font-family */
+*,
+*::before,
+*::after {
+  font-family: var(--font-main) !important;
 }
 
 /* Optionally, override headings and nav for consistency */
