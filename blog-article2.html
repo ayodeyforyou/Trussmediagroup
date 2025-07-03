@@ -71,12 +71,50 @@
         </p>
       </article>
 
-        <h3>Newsletter Signup</h3>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Your email" required />
-          <button class="btn btn--primary">Subscribe</button>
+      <!-- NEWSLETTER SIGNUP SECTION -->
+      <section class="newsletter-signup" aria-label="Newsletter Signup">
+        <form
+          class="newsletter-form"
+          method="POST"
+          action="process-newsletter.php"
+          autocomplete="off"
+          novalidate
+        >
+          <h2 class="newsletter-title">Stay in the Loop</h2>
+          <p class="newsletter-desc">
+            Sign up for our newsletter to get the latest updates, insights, and
+            exclusive offers from Truss Media Group.
+          </p>
+          <div class="newsletter-fields">
+            <label for="newsletter-email" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="newsletter-email"
+              name="email"
+              placeholder="Your email address"
+              required
+              aria-required="true"
+              aria-label="Email address"
+            />
+            <button
+              type="submit"
+              class="btn btn--primary"
+              aria-label="Subscribe"
+            >
+              Subscribe
+            </button>
+          </div>
+          <div class="newsletter-privacy">
+            We respect your privacy. Unsubscribe at any time.
+          </div>
+          <div
+            id="newsletterStatus"
+            aria-live="polite"
+            aria-atomic="true"
+          ></div>
         </form>
-      </aside>
+      </section>
+      <!-- END NEWSLETTER SIGNUP SECTION -->
     </main>
   </body>
 </html>

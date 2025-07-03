@@ -1269,3 +1269,23 @@ textarea,
 button {
   font-family: "Ubuntu", Arial, Helvetica, sans-serif !important;
 }
+
+.card,
+.service-card,
+.value-card,
+.about-card {
+  border: 2px solid #d4af37;
+  box-shadow: 0 0 16px 0 rgba(212, 175, 55, 0.18),
+    0 2px 8px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 18px;
+  transition: box-shadow 0.3s, border-color 0.3s;
+  background: var(--card-bg, #181818);
+}
+.card:hover,
+.service-card:hover,
+.value-card:hover,
+.about-card:hover {
+  box-shadow: 0 0 32px 0 rgba(212, 175, 55, 0.32),
+    0 4px 16px 0 rgba(0, 0, 0, 0.12);
+  border-color: #f4c542;
+}

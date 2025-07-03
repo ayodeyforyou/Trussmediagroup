@@ -7,6 +7,31 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- THEME TOGGLE BUTTON -->
+    <button
+      class="theme-toggle"
+      aria-label="Toggle light/dark mode"
+      style="position: fixed; top: 1.5rem; right: 1.5rem; z-index: 1001"
+    >
+      <svg
+        class="theme-toggle__icon"
+        width="28"
+        height="28"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="var(--gold)"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="5" fill="var(--gold)" />
+        <path
+          d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+        />
+      </svg>
+    </button>
+    <script src="script.js"></script>
+    <!-- END THEME TOGGLE BUTTON -->
     <header class="blog-hero">
       <h1>HOW TO BUILD A CULTURALLY RELEVANT IP FOR GLOBAL AUDIENCES</h1>
       <div class="blog__meta">June 2025 • by Adewale S. Adekunle</div>
@@ -18,9 +43,10 @@
           alt="culturally relevant"
           class="blog-article__img"
         />
-        <p>In the creative world, Intellectual Property (IP) refers
-          to original creative works of an individual such as films, TV series,
-          books, characters, formats or even branded content that can be legally
+        <p>
+          In the creative world, Intellectual Property (IP) refers to original
+          creative works of an individual such as films, TV series, books,
+          characters, formats or even branded content that can be legally
           protected and monetized across platforms. A strong IP is a valuable
           asset that can be adapted, franchised and licensed globally. In
           today’s content-driven world, the stories that travel farthest are the
@@ -58,38 +84,74 @@
 
         <h2>Think Beyond One Platform</h2>
         <p>
-          Today’s audiences aren’t limited to cinemas and TV screens. They are watching content on their phones, following stories across social media and engaging with characters in interactive ways. When developing a culturally relevant IP, it is important to think across platforms.
-
-          Can your story live as a web series, a podcast, a game, or even as a fan-driven social movement? IPs that are flexible, what some call “platform-fluid” are more likely to grow and last in today’s content ecosystem.
+          Today’s audiences aren’t limited to cinemas and TV screens. They are
+          watching content on their phones, following stories across social
+          media and engaging with characters in interactive ways. When
+          developing a culturally relevant IP, it is important to think across
+          platforms. Can your story live as a web series, a podcast, We are the
+          collaborator who will respect your vision, see the global potential in
+          your local story and who can help you reach the audiences your IP
+          deserves.
         </p>
 
-        <h2>Invest in Quality, But Stay Authentic</h2>
-          <p>As global interest in African stories rises, production quality is more important than ever. To compete internationally, visuals, sound and storytelling need to meet global standards.
-
-          But quality doesn’t mean you should lose the rawness, authenticity and honesty that make your story African. The balance is key: produce with care but don’t polish your story to the point where it feels artificial. Global audiences are drawn to cultural depth, they want to experience your world as it truly is.
-      </p>
-      <h2>Build With the Right People</h2>
-          <p>Taking an IP global is not a solo journey. It is about building the right team, writers,     producers, distributors and even Media agency like Truss Media Group, who understand your story’s cultural value and won’t ask you to compromise it for quick profit.
-
-          We are the collaborator who will respect your vision, see the global potential in your local story and who can help you reach the audiences your IP deserves.
+        <h2>Final Thoughts</h2>
+        <p>
+          The future of storytelling belongs to creators who are boldly
+          themselves. Building a culturally relevant IP for global audiences
+          starts with staying true to your roots while crafting stories that
+          touch hearts everywhere. The opportunity to shape narratives, create
+          unforgettable characters and build lasting global IP is here. The
+          storytellers who embrace this moment, who build for now and beyond
+          will lead the way. At Truss Media Group, we are dedicated to
+          developing globally competitive intellectual properties rooted in
+          local relevance and we are just a click away.
         </p>
-
-      <h2>Final Thoughts</h2>
-      <p>The future of storytelling belongs to creators who are boldly themselves. Building a culturally relevant IP for global audiences starts with staying true to your roots while crafting stories that touch hearts everywhere.
-
-        The opportunity to shape narratives, create unforgettable characters and build lasting global IP is here. The storytellers who embrace this moment, who build for now and beyond will lead the way.
-
-          At Truss Media Group, we are dedicated to developing globally competitive intellectual properties rooted in local relevance and we are just a click away.
-        </p>
-
       </article>
-      
-        <h3>Newsletter Signup</h3>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Your email" required />
-          <button class="btn btn--primary">Subscribe</button>
+
+      <!-- NEWSLETTER SIGNUP SECTION -->
+      <section class="newsletter-signup" aria-label="Newsletter Signup">
+        <form
+          class="newsletter-form"
+          method="POST"
+          action="process-newsletter.php"
+          autocomplete="off"
+          novalidate
+        >
+          <h2 class="newsletter-title">Stay in the Loop</h2>
+          <p class="newsletter-desc">
+            Sign up for our newsletter to get the latest updates, insights, and
+            exclusive offers from Truss Media Group.
+          </p>
+          <div class="newsletter-fields">
+            <label for="newsletter-email" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="newsletter-email"
+              name="email"
+              placeholder="Your email address"
+              required
+              aria-required="true"
+              aria-label="Email address"
+            />
+            <button
+              type="submit"
+              class="btn btn--primary"
+              aria-label="Subscribe"
+            >
+              Subscribe
+            </button>
+          </div>
+          <div class="newsletter-privacy">
+            We respect your privacy. Unsubscribe at any time.
+          </div>
+          <div
+            id="newsletterStatus"
+            aria-live="polite"
+            aria-atomic="true"
+          ></div>
         </form>
-      </aside>
+      </section>
+      <!-- END NEWSLETTER SIGNUP SECTION -->
     </main>
   </body>
 </html>

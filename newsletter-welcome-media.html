@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Truss Media Group Newsletter</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #f7f7f7;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 600px;
+        margin: 2em auto;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px #0001;
+        overflow: hidden;
+      }
+      .header {
+        background: #181818;
+        color: #d4af37;
+        padding: 1.5em 2em;
+        text-align: center;
+      }
+      .content {
+        padding: 2em;
+        color: #222;
+      }
+      .footer {
+        background: #191919;
+        color: #fff;
+        text-align: center;
+        padding: 1em;
+        font-size: 0.95em;
+      }
+      .unsubscribe {
+        color: #d4af37;
+        text-decoration: underline;
+      }
+      @media (max-width: 600px) {
+        .container,
+        .content,
+        .header,
+        .footer {
+          padding: 1em !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img
+          src="https://yourdomain.com/Truss%20Media%20-%20Full%20Logo%20-%20Horizontal%20-%20Gold.svg"
+          alt="Truss Media Group"
+          style="max-width: 180px; margin-bottom: 1em"
+        />
+        <h2>Welcome to Our Media Newsletter</h2>
+      </div>
+      <div class="content">
+        <p>Hi {{name}},</p>
+        <p>
+          Thank you for subscribing to the Truss Media Group newsletter. You’ll
+          receive the latest updates, industry insights, and exclusive offers
+          directly to your inbox.
+        </p>
+        <p>
+          If you have any preferences or topics you’d like to hear about, let us
+          know!
+        </p>
+        <p>Best regards,<br /><strong>Truss Media Group Team</strong></p>
+      </div>
+      <div class="footer">
+        Truss Media Group &bull; Lekki, Lagos &bull; info@trussmediagroup.com<br />
+        <a href="{{unsubscribe_link}}" class="unsubscribe">Unsubscribe</a>
+      </div>
+    </div>
+  </body>
+</html>
