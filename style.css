@@ -46,28 +46,265 @@ body {
 body.light-mode {
   --color-bg: #fff;
   --color-text: #181818;
-  --color-accent: #031273; /* Royal Blue as primary accent */
-  --color-accent-secondary: #d4af37; /* Gold as secondary accent */
-  --color-nav-bg: #f8f8f8;
+  --color-accent: #0066cc; /* Royal Blue */
+  --color-accent-secondary: #ffd700; /* Gold */
+  --color-nav-bg: #f8faff;
   --color-nav-text: #181818;
-  --color-footer-bg: #f2f2f2;
+  --color-footer-bg: #f4f7fa;
   --color-footer-text: #181818;
-  --color-section-bg: #f9f9f9;
-  --color-input-bg: #f2f2f2;
+  --color-section-bg: #f9fbfd;
+  --color-input-bg: #f4f7fa;
   --color-input-text: #181818;
-}
-html,
-body {
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-main);
-  background: var(--color-bg);
-  color: var(--color-text);
-  transition: background 0.3s, color 0.3s;
+  --color-border: #e0e6ed;
+  --color-shadow: 0 2px 12px rgba(0, 102, 204, 0.07);
+  --color-card-bg: #fff;
+  --color-card-border: #e0e6ed;
+  --color-card-shadow: 0 4px 24px rgba(0, 102, 204, 0.08);
 }
 
-/* Skip to Content link styles */
-.skip-to-content {
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+body.light-mode .hero,
+body.light-mode .services,
+body.light-mode .team,
+body.light-mode .testimonials,
+body.light-mode .blog,
+body.light-mode .contact {
+  background: var(--color-section-bg);
+}
+
+body.light-mode .hero__title,
+body.light-mode .services__title,
+body.light-mode .team__title,
+body.light-mode .testimonials__title,
+body.light-mode .blog__title {
+  color: var(--color-accent);
+}
+
+body.light-mode .hero__tagline,
+body.light-mode .hero__subtitle {
+  color: var(--color-text);
+}
+
+body.light-mode .btn--primary {
+  background: linear-gradient(
+    90deg,
+    var(--color-accent) 60%,
+    var(--color-accent-secondary) 100%
+  );
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(0, 102, 204, 0.1);
+}
+body.light-mode .btn--primary:hover {
+  background: linear-gradient(
+    90deg,
+    var(--color-accent-secondary) 60%,
+    var(--color-accent) 100%
+  );
+  color: #fff;
+}
+body.light-mode .btn--secondary {
+  background: transparent;
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+}
+body.light-mode .btn--secondary:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+body.light-mode .service-card,
+body.light-mode .team-card,
+body.light-mode .testimonial-card,
+body.light-mode .blog__card,
+body.light-mode .card,
+body.light-mode .about-card {
+  background: var(--color-card-bg);
+  color: var(--color-text);
+  border: 1.5px solid var(--color-card-border);
+  box-shadow: var(--color-card-shadow);
+}
+body.light-mode .service-card:hover,
+body.light-mode .team-card:hover,
+body.light-mode .testimonial-card:hover,
+body.light-mode .blog__card:hover,
+body.light-mode .card:hover,
+body.light-mode .about-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 8px 32px rgba(0, 102, 204, 0.18), 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+body.light-mode .service-card__title,
+body.light-mode .team-card__name,
+body.light-mode .blog__card-title {
+  color: var(--color-accent);
+}
+body.light-mode .service-card__desc,
+body.light-mode .team-card__role,
+body.light-mode .testimonial-card__quote,
+body.light-mode .blog__excerpt {
+  color: var(--color-text);
+}
+body.light-mode .stat-box__num {
+  color: var(--color-accent);
+}
+body.light-mode .stat-box__label {
+  color: #4a4a4a;
+}
+body.light-mode .footer {
+  background: var(--color-footer-bg);
+  color: var(--color-footer-text);
+  border-top: 1px solid var(--color-border);
+}
+body.light-mode .footer__desc,
+body.light-mode .footer__contact-title {
+  color: var(--color-accent);
+}
+body.light-mode .footer__nav-link {
+  color: var(--color-footer-text);
+}
+body.light-mode .footer__nav-link:hover {
+  color: var(--color-accent);
+}
+body.light-mode .footer__social-link {
+  background: var(--color-section-bg);
+}
+body.light-mode .footer__social-link:hover {
+  background: var(--color-accent);
+}
+body.light-mode .footer__social-link svg {
+  stroke: var(--color-accent);
+}
+body.light-mode .footer__social-link:hover svg {
+  stroke: var(--color-footer-bg);
+  fill: var(--color-footer-text);
+}
+body.light-mode .contact__form,
+body.light-mode .contact__info-block {
+  background: var(--color-card-bg);
+  color: var(--color-text);
+  box-shadow: var(--color-card-shadow);
+}
+body.light-mode .contact__form input,
+body.light-mode .contact__form select,
+body.light-mode .contact__form textarea {
+  background: var(--color-input-bg);
+  color: var(--color-input-text);
+  border: 1.5px solid var(--color-border);
+}
+body.light-mode .contact__form input:focus,
+body.light-mode .contact__form select:focus,
+body.light-mode .contact__form textarea:focus {
+  border: 1.5px solid var(--color-accent);
+}
+body.light-mode .contact__info-block h3,
+body.light-mode .contact__info-block a {
+  color: var(--color-accent);
+}
+body.light-mode .contact__info-block a:hover {
+  color: var(--color-accent-secondary);
+}
+body.light-mode .contact__socials a {
+  color: var(--color-accent-secondary);
+}
+body.light-mode .contact__socials a:hover {
+  color: var(--color-accent);
+}
+body.light-mode .contact__socials a:focus svg,
+body.light-mode .contact__socials a:hover svg {
+  filter: drop-shadow(0 2px 6px #b3e0ff);
+}
+body.light-mode .theme-toggle {
+  background: var(--color-section-bg);
+  color: var(--color-accent);
+}
+body.light-mode .theme-toggle:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+body.light-mode .newsletter-signup {
+  background: var(--color-card-bg);
+  box-shadow: var(--color-card-shadow);
+}
+body.light-mode .newsletter-title {
+  color: var(--color-accent);
+}
+body.light-mode .newsletter-fields input[type="email"] {
+  background: var(--color-input-bg);
+  color: var(--color-input-text);
+  border: 1.5px solid var(--color-border);
+}
+body.light-mode .newsletter-fields button {
+  background: var(--color-accent-secondary);
+  color: var(--color-text);
+}
+body.light-mode .newsletter-fields button:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+body.light-mode .newsletter-privacy {
+  color: #4a4a4a;
+}
+body.light-mode .blog-main {
+  background: var(--color-card-bg);
+  color: var(--color-text);
+  box-shadow: var(--color-card-shadow);
+}
+body.light-mode .blog-hero {
+  background: linear-gradient(120deg, #f8faff 60%, #e0e6ed 100%);
+  border-bottom: 1px solid var(--color-border);
+}
+body.light-mode .blog-hero h1,
+body.light-mode .blog-article h2 {
+  color: var(--color-accent);
+}
+body.light-mode .blog-article p {
+  color: var(--color-text);
+}
+body.light-mode .blog__meta {
+  color: #4a4a4a;
+}
+body.light-mode .blog-article__img {
+  box-shadow: 0 2px 12px #0066cc22;
+}
+body.light-mode .blog__readmore {
+  color: var(--color-accent);
+}
+body.light-mode .blog__readmore:hover {
+  color: var(--color-accent-secondary);
+}
+body.light-mode .stat-box {
+  background: var(--color-card-bg);
+  box-shadow: var(--color-card-shadow);
+  border: 1.5px solid var(--color-card-border);
+}
+body.light-mode .stat-box__num {
+  color: var(--color-accent);
+}
+body.light-mode .stat-box__label {
+  color: #4a4a4a;
+}
+body.light-mode .carousel__item {
+  background: var(--color-card-bg);
+  box-shadow: var(--color-card-shadow);
+}
+body.light-mode .carousel__caption {
+  color: var(--color-accent-secondary);
+  background: #f4f7fa;
+}
+body.light-mode .hero__overlay {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.7) 60%,
+    rgba(0, 102, 204, 0.1) 100%
+  );
+}
+body.light-mode .hero__bg {
+  filter: brightness(0.92) contrast(1.05);
+}
+body.light-mode .skip-to-content {
   position: absolute;
   top: 0;
   left: 0;
@@ -81,10 +318,19 @@ body {
   font-weight: 600;
   text-decoration: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  outline: none;
+  opacity: 0;
+  pointer-events: none;
 }
 .skip-to-content:focus {
   transform: translateY(0);
   outline: 3px solid #0078d7;
+  opacity: 1;
+  pointer-events: auto;
+}
+body.dark-mode .skip-to-content {
+  background: #181818;
+  color: #fff;
 }
 
 /* HERO SECTION */
@@ -1364,102 +1610,4 @@ body {
 }
 .blog-article {
   margin-bottom: 2.5rem;
-}
-/* Newsletter section */
-.newsletter-signup {
-  background: #191919;
-  border-radius: 10px;
-  margin: 2.5rem 0 0 0;
-  padding: 2rem 1.5rem 1.5rem 1.5rem;
-  box-shadow: 0 2px 12px #0002;
-  text-align: center;
-}
-.newsletter-title {
-  color: #d4af37;
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-.newsletter-desc {
-  color: #bdbdbd;
-  font-size: 1.08rem;
-  margin-bottom: 1.2rem;
-}
-.newsletter-fields {
-  display: flex;
-  flex-direction: row;
-  gap: 0.7rem;
-  justify-content: center;
-  margin-bottom: 0.7rem;
-}
-.newsletter-fields input[type="email"] {
-  padding: 0.7em 1em;
-  border-radius: 6px;
-  border: none;
-  font-size: 1rem;
-  background: #232323;
-  color: #fff;
-  outline: none;
-  min-width: 200px;
-  max-width: 320px;
-}
-.newsletter-fields button {
-  background: #d4af37;
-  color: #181818;
-  border: none;
-  border-radius: 6px;
-  padding: 0.7em 1.3em;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.newsletter-fields button:hover {
-  background: #bfa13a;
-}
-.newsletter-privacy {
-  color: #bdbdbd;
-  font-size: 0.98rem;
-  margin-top: 0.5rem;
-}
-/* Theme toggle button */
-.theme-toggle {
-  background: #232323;
-  border: none;
-  border-radius: 50%;
-  padding: 0.6em;
-  cursor: pointer;
-  box-shadow: 0 2px 8px #0002;
-  transition: background 0.2s;
-}
-.theme-toggle:hover {
-  background: #191919;
-}
-.theme-toggle__icon {
-  display: block;
-}
-/* Responsive styles */
-@media (max-width: 900px) {
-  .blog-main {
-    padding: 1.2rem 0.7rem 1.2rem 0.7rem;
-  }
-}
-@media (max-width: 600px) {
-  .blog-hero {
-    padding: 2.2rem 0.7rem 1.2rem 0.7rem;
-  }
-  .blog-main {
-    padding: 0.7rem 0.2rem 1.2rem 0.2rem;
-  }
-  .blog-article__img {
-    max-height: 180px;
-  }
-  .newsletter-signup {
-    padding: 1.2rem 0.5rem 1rem 0.5rem;
-  }
-  .newsletter-fields {
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: stretch;
-  }
 }
