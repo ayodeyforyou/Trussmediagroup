@@ -104,6 +104,24 @@ body.light-mode .hero {
   background-image: url("02.webp");
 }
 
+/* Ensure hero image (02.webp) never exceeds 1280px wide */
+.hero__bg[poster="02.webp"],
+.hero__bg[src$="02.webp"] {
+  max-width: 1280px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero {
+  max-width: 1280px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-size: cover;
+  background-position: center;
+}
+
 .hero__bg {
   position: absolute;
   top: 0;
@@ -390,9 +408,6 @@ body.light-mode .hero {
 /*background: var(--color-section-bg)*/
 
 /* ABOUT SECTION */
-.about {
-}
-
 .about__container {
   display: flex;
   gap: 3rem;
