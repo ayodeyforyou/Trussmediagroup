@@ -84,18 +84,19 @@ body.light-mode .blog__title {
   color: var(--color-accent);
 }
 
+
+body.light-mode .hero__title,
+body.light-mode .services__title,
+body.light-mode .team__title,
+body.light-mode .testimonials__title,
+body.light-mode .blog__title {
+  color: var(--color-accent);
+}
+
 body.light-mode .hero__tagline,
 body.light-mode .hero__subtitle {
   color: var(--color-text);
 }
-
-body.light-mode .btn--primary {
-  background: var(--color-accent);
-  color: #fff;
-  box-shadow: 0 2px 12px rgba(0, 102, 204, 0.1);
-}
-body.light-mode .btn--primary:hover {
-  background: linear-gradient(
     90deg,
     var(--color-accent-secondary) 60%,
     var(--color-accent) 100%
@@ -127,10 +128,25 @@ body.light-mode .service-card:hover,
 body.light-mode .team-card:hover,
 body.light-mode .testimonial-card:hover,
 body.light-mode .blog__card:hover,
+body.light-mode .service-card,
+body.light-mode .team-card,
+body.light-mode .testimonial-card,
+body.light-mode .blog__card,
+body.light-mode .card,
+body.light-mode .about-card {
+  background: var(--color-card-bg);
+  color: var(--color-text);
+  border: 1.5px solid var(--color-card-border);
+  box-shadow: var(--color-card-shadow);
+}
+body.light-mode .service-card:hover,
+body.light-mode .team-card:hover,
+body.light-mode .testimonial-card:hover,
+body.light-mode .blog__card:hover,
 body.light-mode .card:hover,
 body.light-mode .about-card:hover {
   border-color: var(--color-accent);
-  box-shadow: 0 8px 32px rgba(0, 102, 204, 0.18), 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px var(--color-card-shadow), 0 2px 8px var(--color-card-shadow);
 }
 body.light-mode .service-card__title,
 body.light-mode .team-card__name,
@@ -142,21 +158,6 @@ body.light-mode .team-card__role,
 body.light-mode .testimonial-card__quote,
 body.light-mode .blog__excerpt {
   color: var(--color-text);
-}
-body.light-mode .stat-box__num {
-  color: var(--color-accent);
-}
-body.light-mode .stat-box__label {
-  color: #4a4a4a;
-}
-body.light-mode .footer {
-  background: var(--color-footer-bg);
-  color: var(--color-footer-text);
-  border-top: 1px solid var(--color-border);
-}
-body.light-mode .footer__desc,
-body.light-mode .footer__contact-title {
-  color: var(--color-accent);
 }
 body.light-mode .footer__nav-link {
   color: var(--color-footer-text);
@@ -1720,7 +1721,7 @@ body {
 .shimmer {
   position: relative;
   overflow: hidden;
-  background: #222;
+  background: none;
 }
 .shimmer.animated::before {
   content: '';
