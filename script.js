@@ -437,6 +437,50 @@ function debounce(func, wait) {
     };
 }
 
+
+// === SCROLL-TRIGGERED ANIMATIONS ===
+function initializeScrollAnimations() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const animatedSelectors = [
+        '.fade-in', '.slide-left', '.slide-right', '.slide-up', '.scale-in'
+    ];
+    const animatedElements = Array.from(document.querySelectorAll(animatedSelectors.join(',')));
+
+    // Staggered delays for groups (cards, etc.)
+    function getStaggerDelay(el, groupSelector, baseDelay = 80) {
+        if (!groupSelector) return 0;
+        const group = el.closest(groupSelector);
+        if (!group) return 0;
+        const siblings = Array.from(group.querySelectorAll(el.className.split(' ').map(c => '.'+c).join('')));
+        const idx = siblings.indexOf(el);
+        return idx >= 0 ? idx * baseDelay : 0;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                // Stagger for cards, portfolio, carousel, etc.
+                let delay = 0;
+                if (el.classList.contains('fade-in') || el.classList.contains('scale-in')) {
+                    delay = getStaggerDelay(el, '.services__grid, .portfolio__grid, .carousel__track, .team__grid, .testimonials__carousel');
+                }
+                setTimeout(() => {
+                    el.classList.add('revealed');
+                }, delay);
+                observer.unobserve(el);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    animatedElements.forEach(el => {
+        observer.observe(el);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initializeScrollAnimations);
+
 // Export functions for global access
 window.openLightbox = openLightbox;
 window.generateCaptcha = generateCaptcha;
@@ -487,3 +531,73 @@ window.generateCaptcha = generateCaptcha;
 
   document.addEventListener('DOMContentLoaded', revealElements);
 })();
+
+const scrollTop = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+        scrollTop.classList.add('visible');
+    } else {
+        scrollTop.classList.remove('visible');
+    }
+});
+
+scrollTop.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Scroll-triggered Animations with Intersection Observer and Staggered Delays
+document.addEventListener('DOMContentLoaded', function () {
+  const animatedSelectors = [
+    '.fade-in',
+    '.slide-up',
+    '.slide-down',
+    '.slide-left',
+    '.slide-right',
+    '.scale-in',
+    '.shimmer',
+    '.pulse'
+  ];
+  const animatedElements = Array.from(document.querySelectorAll(animatedSelectors.join(',')));
+
+  // Staggered delay for card grids
+  function getStaggerDelay(el) {
+    // Cards in grids: service-card, team-card, blog__card, testimonial-card
+    if (el.classList.contains('service-card') ||
+        el.classList.contains('team-card') ||
+        el.classList.contains('blog__card') ||
+        el.classList.contains('testimonial-card')) {
+      const parent = el.parentElement;
+      const siblings = Array.from(parent.children).filter(child => child.classList.contains(el.classList[0]));
+      const idx = siblings.indexOf(el);
+      return idx * 100; // 100ms per card
+    }
+    return 0;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const delay = getStaggerDelay(el);
+        setTimeout(() => {
+          el.classList.add('animated');
+        }, delay);
+        observer.unobserve(el);
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
+
+  animatedElements.forEach(el => {
+    observer.observe(el);
+  });
+
+  // Reduced motion support
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    animatedElements.forEach(el => el.classList.add('animated'));
+  }
+});
