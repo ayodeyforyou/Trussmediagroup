@@ -72,29 +72,32 @@ function initializeMobileMenu() {
 function initializeThemeToggle() {
     const themeToggle = document.querySelector('.theme-toggle');
     const body = document.body;
+    // Use correct selectors matching HTML
+    const sunIcon = document.querySelector('.sun-svg');
+    const moonIcon = document.querySelector('.moon-svg');
 
+    // Helper to update icon visibility
+    function updateIcons(isLight) {
+        if (sunIcon) sunIcon.style.display = isLight ? 'none' : 'block';
+        if (moonIcon) moonIcon.style.display = isLight ? 'block' : 'none';
+    }
+
+    // Set theme and update icons
     function setTheme(mode) {
-        if (mode === 'light') {
-            body.classList.add('light-mode');
-            localStorage.setItem('theme', 'light');
-        } else {
-            body.classList.remove('light-mode');
-            localStorage.setItem('theme', 'dark');
-        }
+        const isLight = mode === 'light';
+        body.classList.toggle('light-mode', isLight);
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        updateIcons(isLight);
     }
 
-    // Apply saved theme on load
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        setTheme(savedTheme);
-    }
+    // Apply saved theme on load (default: dark)
+    setTheme(localStorage.getItem('theme') === 'light' ? 'light' : 'dark');
 
     // Theme toggle event listener
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
-            const currentTheme = body.classList.contains('light-mode') ? 'light' : 'dark';
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            setTheme(newTheme);
+            const isLight = body.classList.contains('light-mode');
+            setTheme(isLight ? 'dark' : 'light');
         });
     }
 }
@@ -162,7 +165,7 @@ async function submitContactForm(event) {
 
     try {
         const formData = { name, email, message };
-        
+    //change this to your host later
         const response = await fetch("http://localhost:4000/api/contact", {
             method: "POST",
             headers: {

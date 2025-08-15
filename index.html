@@ -30,7 +30,7 @@
     <header class="hero fade-in slide-up">
       <video
         class="hero__bg"
-        src="assets/hero-bg.mp4"
+        src="asset.mp4"
         poster="02.webp"
         autoplay
         muted
@@ -59,19 +59,54 @@
           <a href="#blog" class="nav__link">Blog</a>
           <a href="#contact" class="nav__link">Contact</a>
           <button class="theme-toggle" aria-label="Toggle light/dark mode">
+            <!-- Sun Icon -->
             <svg
-              class="theme-toggle__icon"
-              width="24"
-              height="24"
+              class="theme-toggle__icon sun-svg"
               viewBox="0 0 24 24"
               fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style="display: none"
             >
-              <circle cx="12" cy="12" r="5" fill="#d4af37" />
+              <circle cx="12" cy="12" r="5" fill="currentColor" opacity="0.9" />
+              <g stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+              </g>
+            </svg>
+            <!-- Moon Icon -->
+            <svg
+              class="theme-toggle__icon moon-svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
-                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
-                stroke="#d4af37"
+                d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                stroke="currentColor"
                 stroke-width="2"
-                stroke-linecap="round"
+                fill="currentColor"
+                opacity="0.9"
+              />
+              <circle cx="17" cy="7" r="1" fill="currentColor" opacity="0.6" />
+              <circle
+                cx="15"
+                cy="4"
+                r="0.5"
+                fill="currentColor"
+                opacity="0.4"
+              />
+              <circle
+                cx="19"
+                cy="9"
+                r="0.5"
+                fill="currentColor"
+                opacity="0.4"
               />
             </svg>
           </button>
@@ -85,11 +120,11 @@
           brands that demand excellence
         </p>
         <div class="hero__cta-group">
+          <a href="#carousel" class="btn btn--primary fade-in slide-up"
+            >See Our Work</a
+          >
           <a href="#contact" class="btn btn--secondary fade-in slide-up"
             >Work With Us</a
-          >
-          <a href="#services" class="btn btn--primary fade-in slide-up"
-            >See Our Work</a
           >
           <!--
           <a href="#contact" class="btn btn--secondary reveal-on-scroll"
@@ -102,7 +137,7 @@
     </header>
 
     <!-- CAROUSEL SECTION -->
-    <section class="carousel-section fade-in scale-in shimmer">
+    <section id="carousel" class="carousel-section fade-in scale-in shimmer">
       <h2 class="carousel-section__title fade-in scale-in shimmer">
         Our Cinematic Highlights
       </h2>
@@ -250,18 +285,24 @@
         "
       >
         <div class="about__img-col slide-right scale-in">
-          <img
-            src="redmanolas.webp"
-            alt="Our Creative director bringing stories to life"
-            class="about__img slide-right scale-in"
-            loading="lazy"
-            width="640"
-            height="500"
-          />
-          <div class="about__img-caption slide-right scale-in">
-            Our creative director bringing stories to life
+          <div class="image-wrapper">
+            <img
+              src="redmanolas.webp"
+              alt="Our Creative director bringing stories to life"
+              class="about__img slide-right scale-in"
+              loading="lazy"
+              width="640"
+              height="500"
+            />
+            <div class="about__img-overlay">
+              <h3 class="about__image-name">Daniel Olas O</h3>
+              <p class="about__img-caption slide-right scale-in">
+                Founder and Creative Director.
+              </p>
+            </div>
           </div>
         </div>
+
         <div class="about__content-col slide-left fade-in">
           <h2 class="about__headline slide-left fade-in">
             Passionate Storytellers Since 2012
@@ -689,16 +730,6 @@
         </h2>
         <div class="testimonials__carousel">
           <div class="testimonial-card fade-in scale-in shimmer">
-            <div class="testimonial-card__video">
-              <video
-                src="assets/testimonial1.mp4"
-                poster="assets/testimonial1.jpg"
-                controls
-                loading="lazy"
-                width="640"
-                height="360"
-              ></video>
-            </div>
             <div class="testimonial-card__body">
               <div class="testimonial-card__quote">
                 “Truss Media delivered beyond our expectations. The commercial
@@ -1227,6 +1258,9 @@
             <li><a href="#about" class="footer__nav-link">About</a></li>
             <li><a href="#blog" class="footer__nav-link">Blog</a></li>
             <li><a href="#contact" class="footer__nav-link">Contact</a></li>
+            <li>
+              <a href="#carousel" class="footer__nav-link">Highlights</a>
+            </li>
           </ul>
         </nav>
         <div class="footer__contact-col">

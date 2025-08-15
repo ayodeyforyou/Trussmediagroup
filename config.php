@@ -1,11 +1,11 @@
 <?php
 // config.php
 return [
-    'smtp_host' => 'smtp.gmail.com',
-    'smtp_port' => 587,
-    'smtp_user' => 'your_gmail_address@gmail.com',
-    'smtp_pass' => 'your_app_password', // Use Gmail App Password, not your main password!
-    'smtp_secure' => 'tls',
+    'smtp_host' => 'smtp.hostinger.com',
+    'smtp_port' => 465,
+    'smtp_user' => 'info@trussmediagroup.com', // Use your Hostinger email address
+    'smtp_pass' => 'YOUR_HOSTINGER_EMAIL_PASSWORD', // Use your Hostinger email password
+    'smtp_secure' => 'ssl',
     'from_email' => 'your_gmail_address@gmail.com',
     'from_name' => 'Truss Media Group',
     'admin_email' => 'media@yourdomain.com', // Where contact form notifications go
