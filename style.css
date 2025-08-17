@@ -1,3 +1,83 @@
+.carousel-nav-arrow {
+  display: none;
+}
+@media (max-width: 768px) {
+  .carousel-nav-arrow {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: rgba(26,26,26,0.85);
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+  }
+  .carousel-nav-arrow--left {
+    left: 8px;
+  }
+  .carousel-nav-arrow--right {
+    right: 8px;
+  }
+  .carousel-nav-arrow:focus {
+    outline: 2px solid var(--gold, #d4af37);
+    outline-offset: 2px;
+  }
+}
+
+/* === Theme Toggle Button Modern Styles === */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--toggle-bg, #222);
+  color: var(--toggle-icon, #d4af37);
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+.theme-toggle:focus {
+  outline: 2px solid var(--gold, #d4af37);
+  outline-offset: 2px;
+}
+.theme-toggle:hover {
+  background: var(--toggle-bg-hover, #333);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+.theme-toggle__icon {
+  width: 28px;
+  height: 28px;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s;
+}
+.theme-toggle__icon.sun-svg,
+.theme-toggle__icon.moon-svg {
+  /* Ensure both icons are styled the same */
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+}
+.theme-toggle__icon[style*="display: none"] {
+  opacity: 0;
+  pointer-events: none;
+}
+.theme-toggle__icon[style*="display: block"] {
+  opacity: 1;
+}
 /* Import Ubuntu font at the very top for priority */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
 

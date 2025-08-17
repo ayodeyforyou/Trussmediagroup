@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeStatsAnimation();
     initializeAccessibility();
     generateCaptcha(); // Generate initial captcha
+    initializeCarousel();
 });
 
 // --- Navigation & Smooth Scrolling ---
@@ -428,6 +429,68 @@ styleSheet.textContent = lightboxStyles;
 document.head.appendChild(styleSheet);
 
 // --- Utility Functions ---
+// --- Carousel Controls ---
+function initializeCarousel() {
+    const carouselTrack = document.querySelector('.carousel__track');
+    const items = Array.from(document.querySelectorAll('.carousel__item'));
+    const leftBtn = document.querySelector('.carousel-nav-arrow--left');
+    const rightBtn = document.querySelector('.carousel-nav-arrow--right');
+    let currentIndex = 0;
+
+    // Helper: check if mobile (max-width: 768px)
+    function isMobile() {
+        return window.matchMedia('(max-width: 768px)').matches;
+    }
+
+    function updateCarouselDisplay() {
+        if (isMobile()) {
+            items.forEach((item, i) => {
+                item.style.display = i === currentIndex ? 'block' : 'none';
+            });
+            if (leftBtn) leftBtn.style.display = 'block';
+            if (rightBtn) rightBtn.style.display = 'block';
+        } else {
+            items.forEach(item => {
+                item.style.display = 'block';
+            });
+            if (leftBtn) leftBtn.style.display = 'none';
+            if (rightBtn) rightBtn.style.display = 'none';
+        }
+    }
+
+    // Initial display
+    updateCarouselDisplay();
+
+    // Left button event
+    if (leftBtn) {
+        leftBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            updateCarouselDisplay();
+        });
+    }
+
+    // Right button event
+    if (rightBtn) {
+        rightBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % items.length;
+            updateCarouselDisplay();
+        });
+    }
+
+    // Keyboard accessibility
+    [leftBtn, rightBtn].forEach(btn => {
+        if (btn) {
+            btn.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    btn.click();
+                }
+            });
+        }
+    });
+
+    // Responsive: update on resize
+    window.addEventListener('resize', updateCarouselDisplay);
+}
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
