@@ -577,7 +577,7 @@ body.light-mode .hero {
   left: 10px;
 }
 .carousel-nav-arrow--right {
-  right: -120px;
+  right: -150px;
 }
 .carousel-nav-arrow:active,
 .carousel-nav-arrow:focus {
@@ -720,7 +720,7 @@ body.light-mode .hero {
     left: 8px;
   }
   .carousel-nav-arrow--right {
-    right: 8px;
+    right: -100px;
   }
   .carousel-nav-arrow:focus {
     outline: 2px solid var(--gold, #d4af37);
@@ -776,8 +776,6 @@ body.light-mode .hero {
 .theme-toggle__icon[style*="display: block"] {
   opacity: 1;
 }
-
-/*background: var(--color-section-bg)*/
 
 /* ABOUT SECTION */
 .about {
